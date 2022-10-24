@@ -62,6 +62,15 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        <Route 
+          path="/job-board"
+        />
+        <Route 
+          path="/resources"
+        />
+        <Route 
+          path="/events"
+        />
       </Routes>
     </>
   )
