@@ -1,11 +1,14 @@
 import styles from "./JobBoard.module.css"
+import { Link } from "react-router-dom"
 
-const JobBoard = (props) => {
+const JobBoard = ({jobs}) => {
 
   return (
     <main>
-      {props.jobs.map(job => (
-        <h1>hey</h1>
+      {jobs.map(job => (
+        <Link to={`/jobs/${job._id}`}>
+          <h1>{job.jobTitle}</h1>
+        </Link>
       ))}
     </main>
   )

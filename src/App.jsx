@@ -1,5 +1,5 @@
 // npm modules
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
 // page components
@@ -9,6 +9,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import JobBoard from './pages/JobBoard/JobBoard'
+import JobDetails from './pages/JobDetails/JobDetails'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -41,6 +42,14 @@ const App = () => {
     setJobs([newJob, ...jobs])
     navigate('/jobs')
   }
+
+  useEffect(() => {
+    const fetchAllJobs = async () => {
+      const data = await jobService.index()
+      setJobs(data)
+    }
+    if (user) fetchAllJobs()
+  }, [user])
 
   return (
     <>
@@ -76,6 +85,14 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <JobBoard jobs={jobs} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/jobs/:id"
+          element={
+            <ProtectedRoute user={user}>
+              <JobDetails user={user} /> 
             </ProtectedRoute>
           }
         />
