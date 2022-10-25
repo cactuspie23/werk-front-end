@@ -15,6 +15,8 @@ import JobBoard from './pages/JobBoard/JobBoard'
 import AddJob from './pages/AddJob/AddJob'
 import JobDetails from './pages/JobDetails/JobDetails'
 import EditJob from './pages/EditJob/EditJob'
+import ResourceList from './pages/ResourceList/ResourceList'
+import AddResource from './pages/AddResource/AddResource'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -24,6 +26,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import * as authService from './services/authService'
 import * as eventService from './services/eventService'
 import * as jobService from './services/jobService'
+import * as resourceService from './services/resourceService'
 
 // styles
 import './App.css'
@@ -33,6 +36,7 @@ const App = () => {
   const [events, setEvents] = useState([])
   const [user, setUser] = useState(authService.getUser())
   const [jobs, setJobs] = useState([])
+  const [resources, setResources] = useState([])
 
 
   const handleLogout = () => {
@@ -77,14 +81,26 @@ const App = () => {
     navigate('/jobs')
   }
 
+  const handleAddResource = async (resourceData) => {
+    const newResource = await resourceService.create(resourceData)
+    setResources ([newResource, ...resources])
+    navigate('/resources')
+  }
+
   useEffect(() => {
     const fetchAllJobs = async () => {
       const jobData = await jobService.index()
       setJobs(jobData)
     }
-    if (user) fetchAllJobs()
+    
+    const fetchAllResources = async () => {
+      const resourceData = await resourceService.index()
+        setResources(resourceData)
+      }
+      if (user) 
+      fetchAllJobs()
+      fetchAllResources()
   }, [user])
-
 
   return (
     <>
@@ -149,6 +165,19 @@ const App = () => {
         />
         <Route 
           path="/resources"
+          element={
+            <ProtectedRoute user={user}>
+              <ResourceList resources={resources} />
+            </ProtectedRoute>
+          }
+        />
+        <Route 
+          path="/addresource"
+          element={
+            <ProtectedRoute user={user}>
+              <AddResource handleAddResource={handleAddResource} />
+            </ProtectedRoute>
+          }
         />
         <Route 
           path="/events"
