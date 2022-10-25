@@ -96,8 +96,8 @@ const App = () => {
     const fetchAllResources = async () => {
       const resourceData = await resourceService.index()
         setResources(resourceData)
-      }
-      if (user) 
+    }
+    if (user) 
       fetchAllJobs()
       fetchAllResources()
   }, [user])
