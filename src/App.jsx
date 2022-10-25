@@ -55,7 +55,7 @@ const App = () => {
     navigate('/events')
   }
 
-  const handleUpdateEvent =async (eventData) => {
+  const handleUpdateEvent = async (eventData) => {
     const updatedEvent = await eventService.update(eventData)
     const updatedEventsData = events.map(event => {
       return eventData._id === event._id ? updatedEvent : event

@@ -39,6 +39,7 @@ const update = async (eventData) => {
       },
       body: JSON.stringify(eventData)
     })
+    return res.json()
   } catch (error) {
     console.log(error)
   }

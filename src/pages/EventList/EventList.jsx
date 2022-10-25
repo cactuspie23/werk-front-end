@@ -10,7 +10,7 @@ const EventList = ({events}) => {
       {events.map(event => (
         <>
           <EventCard event={event}/>
-          <Link to='/events/:id/edit'>
+          <Link to={`/events/${event._id}/edit`}>
             <button>Update Event</button>
           </Link>
         </>

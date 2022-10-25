@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom"
 const EditEvent = (props) => {
   const { state } = useLocation()
   const [eventForm, setEventForm] = useState(state)
-
   const [validForm, setValidForm] = useState(false)
 
   const handleChange = ({ target }) => {
@@ -24,7 +23,8 @@ const EditEvent = (props) => {
 
   return (
     <main>
-      <form onSubmit={handleSubmit}>
+      <h1>hi</h1>
+      <form onSubmit={handleSubmit} ref={formElement}>
         <h1>Edit Event</h1>
         <label htmlFor="name-input">Event Name</label>
         <input 
