@@ -9,6 +9,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import JobBoard from './pages/JobBoard/JobBoard'
+import AddJob from './pages/AddJob/AddJob'
 import JobDetails from './pages/JobDetails/JobDetails'
 
 // components
@@ -45,8 +46,8 @@ const App = () => {
 
   useEffect(() => {
     const fetchAllJobs = async () => {
-      const data = await jobService.index()
-      setJobs(data)
+      const jobData = await jobService.index()
+      setJobs(jobData)
     }
     if (user) fetchAllJobs()
   }, [user])
@@ -85,6 +86,14 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <JobBoard jobs={jobs} />
+            </ProtectedRoute>
+          }
+        />
+        <Route 
+          path="/addjob"
+          element={
+            <ProtectedRoute user={user}>
+              <AddJob handleAddJob={handleAddJob} />
             </ProtectedRoute>
           }
         />
