@@ -9,8 +9,8 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import EventList from './pages/EventList/EventList'
-import EventDetails from './pages/EventDetails/EventDetails'
 import NewEvent from './pages/NewEvent/NewEvent'
+import EditEvent from './pages/EditEvent/EditEvent'
 import JobBoard from './pages/JobBoard/JobBoard'
 import AddJob from './pages/AddJob/AddJob'
 import JobDetails from './pages/JobDetails/JobDetails'
@@ -48,6 +48,15 @@ const App = () => {
   const handleAddEvent = async (eventData) => {
     const newEvent = await eventService.create(eventData)
     setEvents([newEvent, ...events])
+    navigate('/events')
+  }
+
+  const handleUpdateEvent =async (eventData) => {
+    const updatedEvent = await eventService.update(eventData)
+    const updatedEventsData = events.map(event => {
+      return eventData._id === event._id ? updatedEvent : event
+    })
+    setEvents(updatedEventsData)
     navigate('/events')
   }
 
@@ -143,6 +152,14 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <NewEvent handleAddEvent={handleAddEvent}/>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="events/:id/edit"
+          element={
+            <ProtectedRoute user={user}>
+              <EditEvent handleUpdateEvent={handleUpdateEvent} />
             </ProtectedRoute>
           }
         />

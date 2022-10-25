@@ -31,7 +31,7 @@ const create = async (eventData) => {
 
 const update = async (eventData) => {
   try {
-    const res = await fetch(`${BASE_URL}/events`, {
+    const res = await fetch(`${BASE_URL}/${eventData._id}`, {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,

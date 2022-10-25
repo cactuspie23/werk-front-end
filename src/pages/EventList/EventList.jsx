@@ -8,7 +8,12 @@ const EventList = ({events}) => {
         <button>Add Event</button>
       </Link>
       {events.map(event => (
-        <EventCard event={event}/>
+        <>
+          <EventCard event={event}/>
+          <Link to='/events/:id/edit'>
+            <button>Update Event</button>
+          </Link>
+        </>
       ))}
     </main>
   )
