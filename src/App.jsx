@@ -38,8 +38,8 @@ const App = () => {
     setUser(authService.getUser())
   }
 
-  const handleAddJob = async (jobdata) => {
-    const newJob = await jobService.create(jobdata)
+  const handleAddJob = async (jobData) => {
+    const newJob = await jobService.create(jobData)
     setJobs([newJob, ...jobs])
     navigate('/jobs')
   }

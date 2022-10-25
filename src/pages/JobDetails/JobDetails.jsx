@@ -15,23 +15,23 @@ const JobDetails = (props) => {
     fetchJob()
   }, [id])
 
+  if(!job) return <main>Loading...</main>
+console.log(props.user)
   return (
     <main>
       <article>
-        <header>
-          <h3>{job.jobTitle.toUpperCase()}</h3>
-          <h1>{job.company}</h1>
-          <span>
-            {job.owner._id === props.user.profile &&
-              <>
-                <Link to={`/jobs/${id}/edit`} state={job}>Edit</Link>
-                <button onClick={() => props.handleDeleteJob(id)}>Delete</button>
-              </>
-            }
-          </span>
-        </header>
-        <p>{job.url}</p>
+        <h1>{job.jobTitle.toUpperCase()}</h1>
+        <h3>Company: {job.companyName}</h3>
+        <h3>Website: <Link>{job.url}</Link></h3>
       </article>
+      <span>
+        {job.owner._id === props.user.profile &&
+          <>
+            <Link to={`/jobs/${id}/edit`} state={job}>Edit</Link>
+            <button onClick={() => props.handleDeleteJob(id)}>Delete</button>
+          </>
+        }
+      </span>
     </main>
   )
 }
