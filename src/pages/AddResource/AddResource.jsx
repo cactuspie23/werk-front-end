@@ -29,7 +29,7 @@ const AddResource = (props) => {
 
   return (
     <main className={styles.container}>
-      <form onSubmit={handleSubmit} ref={formElement}>
+      <form autoComplete="off" onSubmit={handleSubmit} ref={formElement}>
         <label htmlFor="name-input">Resource Name</label>
         <input
           required
