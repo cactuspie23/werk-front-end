@@ -1,21 +1,20 @@
-import { useState } from 'react'
+import styles from "./ResourceList.module.css"
+import { Link } from 'react-router-dom'
+import ResourceCard from "../../components/ResourceCard/ResourceCard"
 
-const [resourceList, setResourceList] = useState({
-  
-})
 
 const ResourceList = (props) => {
   return (
     <main className={styles.container}>
-      Resource List
+      {props.resources.map(resource => (
+        <ResourceCard resource={resource} key={resource._id} />
+      ))}
+      <Link to='/addresource'>
+        <button>Add Resource</button>
+      </Link>
     </main>
   )
 }
-
-
-// {props.resources.map(resource => (
-//   <Resources resources={resources} key={resource._id}/>
-
 
 
 export default ResourceList
