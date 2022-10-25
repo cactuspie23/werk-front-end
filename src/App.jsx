@@ -151,7 +151,7 @@ const App = () => {
           path="/jobs/:id"
           element={
             <ProtectedRoute user={user}>
-              <JobDetails user={user} /> 
+              <JobDetails user={user} handleDeleteJob={handleDeleteJob} /> 
             </ProtectedRoute>
           }
         />
