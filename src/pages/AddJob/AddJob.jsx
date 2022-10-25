@@ -43,7 +43,7 @@ const AddJob = (props) => {
           onChange={handleChange}
         />
         <label htmlFor="company-input">Company</label>
-        <textarea
+        <input
           required
           type="text"
           name="companyName"
@@ -53,7 +53,7 @@ const AddJob = (props) => {
           onChange={handleChange}
         />
         <label htmlFor="url-input">Website URL</label>
-				<textarea
+				<input
           required
           type="text"
           name="url"
