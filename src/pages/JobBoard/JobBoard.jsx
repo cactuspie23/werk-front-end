@@ -9,9 +9,12 @@ const JobBoard = ({jobs}) => {
         <button>Add Job</button>
       </Link>
       {jobs.map(job => (
-        <Link to={`/jobs/${job._id}`}>
-          <h1>{job.jobTitle}</h1>
-        </Link>
+        <>
+          <Link to={`/jobs/${job._id}`}>
+            <h1>{job.jobTitle}</h1>
+          </Link>
+          <h3>{job.companyName}</h3>
+        </>
       ))}
     </main>
   )
