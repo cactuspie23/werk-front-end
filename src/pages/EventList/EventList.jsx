@@ -1,10 +1,14 @@
-import EventCard from "../../components/EventCard/EventCard";
+import { Link } from "react-router-dom";
+import EventCard from "../../components/EventCard/EventCard"
 
-const EventList = (props) => {
+const EventList = ({events}) => {
   return (
     <main>
-      {props.events.map(event => (
-        <EventCard event={event} key={event._id}/>
+      <Link to='/events/new'>
+        <button>Add Event</button>
+      </Link>
+      {events.map(event => (
+        <EventCard event={event}/>
       ))}
     </main>
   )

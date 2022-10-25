@@ -1,10 +1,14 @@
-import { Link } from "react-router-dom";
 
 const EventCard = ({ event }) => {
+  const date = new Date(event.date).toLocaleDateString()
   return (
-    <Link to={`/events/$event._id}`}>
+    <>
       <h1>{event.name}</h1>
-    </Link>
+      <h3>{date}</h3>
+      <h3>{event.time}</h3>
+      <h3>{event.location}</h3>
+      <h4>{event.description}</h4>
+    </>
   )
 }
 

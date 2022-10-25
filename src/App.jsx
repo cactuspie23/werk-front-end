@@ -1,6 +1,6 @@
 // npm modules
 import { useState, useEffect } from 'react'
-import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 
 // page components
 import Signup from './pages/Signup/Signup'
@@ -11,6 +11,9 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import EventList from './pages/EventList/EventList'
 import EventDetails from './pages/EventDetails/EventDetails'
 import NewEvent from './pages/NewEvent/NewEvent'
+import JobBoard from './pages/JobBoard/JobBoard'
+import AddJob from './pages/AddJob/AddJob'
+import JobDetails from './pages/JobDetails/JobDetails'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -19,14 +22,17 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 // services
 import * as authService from './services/authService'
 import * as eventService from './services/eventService'
+import * as jobService from './services/jobService'
 
 // styles
 import './App.css'
 
 const App = () => {
-  const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
   const [events, setEvents] = useState([])
+  const [user, setUser] = useState(authService.getUser())
+  const [jobs, setJobs] = useState([])
+
 
   const handleLogout = () => {
     authService.logout()
@@ -38,6 +44,7 @@ const App = () => {
     setUser(authService.getUser())
   }
 
+
   const handleAddEvent = async (eventData) => {
     const newEvent = await eventService.create(eventData)
     setEvents([newEvent, ...events])
@@ -45,13 +52,27 @@ const App = () => {
   }
 
   useEffect (() => {
-    console.log('Use Effect all good')
     const fetchAllEvents = async () => {
-      console.log("It's fetchin as its supposed to")
-      const data = await eventService.index()
-      setEvents(data)
+      const eventData = await eventService.index()
+      setEvents(eventData)
     }
-  })
+    if (user) fetchAllEvents()
+  }, [user])
+
+  const handleAddJob = async (jobdata) => {
+    const newJob = await jobService.create(jobdata)
+    setJobs([newJob, ...jobs])
+    navigate('/jobs')
+  }
+
+  useEffect(() => {
+    const fetchAllJobs = async () => {
+      const jobData = await jobService.index()
+      setJobs(jobData)
+    }
+    if (user) fetchAllJobs()
+  }, [user])
+
 
   return (
     <>
@@ -83,7 +104,28 @@ const App = () => {
           }
         />
         <Route 
-          path="/job-board"
+          path="/jobs"
+          element={
+            <ProtectedRoute user={user}>
+              <JobBoard jobs={jobs} />
+            </ProtectedRoute>
+          }
+        />
+        <Route 
+          path="/addjob"
+          element={
+            <ProtectedRoute user={user}>
+              <AddJob handleAddJob={handleAddJob} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/jobs/:id"
+          element={
+            <ProtectedRoute user={user}>
+              <JobDetails user={user} /> 
+            </ProtectedRoute>
+          }
         />
         <Route 
           path="/resources"
@@ -91,7 +133,9 @@ const App = () => {
         <Route 
           path="/events"
           element={
-            <EventList events={events} />
+            <ProtectedRoute user={user}>
+              <EventList events={events} />
+            </ProtectedRoute>
           }
         />
         <Route

@@ -1,12 +1,15 @@
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 
 const NewEvent = (props) => {
   const [eventForm, setEventForm] = useState({
     name: '',
     date: '',
+    time: '',
     location: '',
     description: '',
   })
+
+  const [validForm, setValidForm] = useState(false)
 
   const handleChange = ({target}) => {
     setEventForm({...eventForm, [target.name]: target.value })
@@ -17,42 +20,64 @@ const NewEvent = (props) => {
     props.handleAddEvent(eventForm)
   }
 
+  const formElement = useRef()
+
+  useEffect(() => {
+    formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
+  }, [eventForm])
+
   return (
     <main>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} ref={formElement}>
+        <label htmlFor="name-input">Event Name</label>
         <input 
           required 
           type="text"
           name="name"
+          id="name-input"
           value={eventForm.name}
           placeholder="Name"
-          onchange={handleChange}
+          onChange={handleChange}
         />
+        <label htmlFor="date-input">Event Date</label>
         <input 
           required 
-          type="Date"
-          name="Date"
+          type="date"
+          name="date"
+          id="date-input"
           value={eventForm.date}
-          placeholder="Date"
-          onchange={handleChange}
+          onChange={handleChange}
         />
+        <label htmlFor="time-input">Event Time</label>
         <input 
           required 
-          type="Text"
-          name="Location"
+          type="time"
+          name="time"
+          id="time-input"
+          value={eventForm.time}
+          onChange={handleChange}
+        />
+        <label htmlFor="location-input">Location</label>
+        <input 
+          required 
+          type="text"
+          name="location"
+          id="location-input"
           value={eventForm.location}
           placeholder="Location"
-          onchange={handleChange}
+          onChange={handleChange}
         />
+        <label htmlFor="description-input">Description</label>
         <input 
           required 
           type="text"
           name="description"
+          id="description-input"
           value={eventForm.description}
           placeholder="Description"
-          onchange={handleChange}
+          onChange={handleChange}
         />
-        <button type="submit">Submit</button>
+        <button type="submit" disabled={!validForm}>Submit</button>
       </form>
     </main>
   )
