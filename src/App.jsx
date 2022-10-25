@@ -14,6 +14,7 @@ import NewEvent from './pages/NewEvent/NewEvent'
 import JobBoard from './pages/JobBoard/JobBoard'
 import AddJob from './pages/AddJob/AddJob'
 import JobDetails from './pages/JobDetails/JobDetails'
+import EditJob from './pages/EditJob/EditJob'
 import ResourceList from './pages/ResourceList/ResourceList'
 import AddResource from './pages/AddResource/AddResource'
 
@@ -48,7 +49,6 @@ const App = () => {
     setUser(authService.getUser())
   }
 
-
   const handleAddEvent = async (eventData) => {
     const newEvent = await eventService.create(eventData)
     setEvents([newEvent, ...events])
@@ -63,9 +63,21 @@ const App = () => {
     if (user) fetchAllEvents()
   }, [user])
 
-  const handleAddJob = async (jobdata) => {
-    const newJob = await jobService.create(jobdata)
+  const handleAddJob = async (jobData) => {
+    const newJob = await jobService.create(jobData)
     setJobs([newJob, ...jobs])
+    navigate('/jobs')
+  }
+
+  const handleUpdateJob = async (jobData) => {
+    const updatedJob = await jobService.update(jobData)
+    setJobs(jobs.map((j) => jobData._id === j._id ? updatedJob : j))
+    navigate('/jobs')
+  }
+
+  const handleDeleteJob = async (id) => {
+    const deletedJob = await jobService.deleteJob(id)
+    setJobs(jobs.filter(j => j._id !== deletedJob._id))
     navigate('/jobs')
   }
 
@@ -80,15 +92,15 @@ const App = () => {
       const jobData = await jobService.index()
       setJobs(jobData)
     }
-    if (user) fetchAllJobs()
     
     const fetchAllResources = async () => {
       const resourceData = await resourceService.index()
         setResources(resourceData)
       }
-      if (user) fetchAllResources()
-}, [user])
-
+      if (user) 
+      fetchAllJobs()
+      fetchAllResources()
+  }, [user])
 
   return (
     <>
@@ -142,6 +154,14 @@ const App = () => {
               <JobDetails user={user} /> 
             </ProtectedRoute>
           }
+        />
+        <Route 
+          path="/jobs/:id/edit" 
+          element={
+            <ProtectedRoute user={user}>
+              <EditJob handleUpdateJob={handleUpdateJob} />
+            </ProtectedRoute>
+          } 
         />
         <Route 
           path="/resources"
