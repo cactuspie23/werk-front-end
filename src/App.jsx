@@ -8,6 +8,9 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import EventList from './pages/EventList/EventList'
+import EventDetails from './pages/EventDetails/EventDetails'
+import NewEvent from './pages/NewEvent/NewEvent'
 import JobBoard from './pages/JobBoard/JobBoard'
 import AddJob from './pages/AddJob/AddJob'
 import JobDetails from './pages/JobDetails/JobDetails'
@@ -18,6 +21,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 // services
 import * as authService from './services/authService'
+import * as eventService from './services/eventService'
 import * as jobService from './services/jobService'
 
 // styles
@@ -25,8 +29,10 @@ import './App.css'
 
 const App = () => {
   const navigate = useNavigate()
+  const [events, setEvents] = useState([])
   const [user, setUser] = useState(authService.getUser())
   const [jobs, setJobs] = useState([])
+
 
   const handleLogout = () => {
     authService.logout()
@@ -37,6 +43,21 @@ const App = () => {
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
   }
+
+
+  const handleAddEvent = async (eventData) => {
+    const newEvent = await eventService.create(eventData)
+    setEvents([newEvent, ...events])
+    navigate('/events')
+  }
+
+  useEffect (() => {
+    const fetchAllEvents = async () => {
+      const eventData = await eventService.index()
+      setEvents(eventData)
+    }
+    if (user) fetchAllEvents()
+  }, [user])
 
   const handleAddJob = async (jobdata) => {
     const newJob = await jobService.create(jobdata)
@@ -51,6 +72,7 @@ const App = () => {
     }
     if (user) fetchAllJobs()
   }, [user])
+
 
   return (
     <>
@@ -110,6 +132,19 @@ const App = () => {
         />
         <Route 
           path="/events"
+          element={
+            <ProtectedRoute user={user}>
+              <EventList events={events} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/events/new"
+          element={
+            <ProtectedRoute user={user}>
+              <NewEvent handleAddEvent={handleAddEvent}/>
+            </ProtectedRoute>
+          }
         />
       </Routes>
     </>
