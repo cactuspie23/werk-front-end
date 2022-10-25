@@ -1,17 +1,13 @@
-import { Link } from 'react-router-dom'
 
 const ResourceCard = ({ resource }) => {
   return (
-    <Link to={`/resources/${resource._id}`}>
-      <article>
-        <header>
-          <span>
-            <h1>{resource.name}</h1>
-          </span>
-        </header>
-        <p>{resource.description}</p>
-      </article>
-    </Link>
+    <>
+    <h1>{resource.name}</h1>
+    <p>{resource.URL}</p>
+    <p>{resource.description}</p>
+    <p>{resource.category}</p>
+    <p>{resource.skills}</p>
+    </>
   )
 }
 

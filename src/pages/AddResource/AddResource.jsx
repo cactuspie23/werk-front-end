@@ -28,15 +28,16 @@ const AddResource = (props) => {
   }, [form])
 
   return (
-    <main>
-      <form onSubmit={handleSubmit}>
+    <main className={styles.container}>
+      <form onSubmit={handleSubmit} ref={formElement}>
         <label htmlFor="name-input">Resource Name</label>
         <input
           required
           type="text"
-          name="name"
+          name="resourceName"
           id="name-input"
-          placeholder="Name"
+          value={form.resourceName}
+          placeholder="Resource Name"
           onChange={handleChange}
         />
         <label htmlFor="URL-input">URL</label>
@@ -45,6 +46,7 @@ const AddResource = (props) => {
           type="text"
           name="URL"
           id="URL-input"
+          value={form.URL}
           placeholder="URL"
           onChange={handleChange}
         />
@@ -54,7 +56,7 @@ const AddResource = (props) => {
           type="text"
           name="description"
           id="description-input"
-          value={form.text}
+          value={form.description}
           placeholder="Description"
           onChange={handleChange}
         />
@@ -68,6 +70,7 @@ const AddResource = (props) => {
         >
           <option value="Book">Book</option>
           <option value="Video">Video</option>
+          <option value="Website">Website</option>
           <option value="Interview Tip">Interview Tip</option>
           <option value="Blog">Blog</option>
           <option value="Article">Article</option>
@@ -79,6 +82,7 @@ const AddResource = (props) => {
           type="text"
           name="skills"
           id="skills-input"
+          value={form.skills}
           placeholder="Skills"
           onChange={handleChange}
         />
