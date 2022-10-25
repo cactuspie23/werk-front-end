@@ -29,7 +29,23 @@ const create = async (eventData) => {
   }
 }
 
+const update = async (eventData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/events`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(eventData)
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export {
   index,
-  create
+  create,
+  update
 }
