@@ -1,17 +1,26 @@
 import * as eventService from '../../services/eventService'
+import styles from './EventCard.module.css'
+import { Link } from 'react-router-dom'
 
 const EventCard = (props) => {
 
   const date = new Date(props.event.date).toLocaleDateString()
   return (
-    <>
-      <h1>{props.event.name}</h1>
-      <h3>{date}</h3>
-      <h3>{props.event.time}</h3>
-      <h3>{props.event.location}</h3>
-      <h4>{props.event.description}</h4>
-      <button onClick={() => props.handleDeleteEvent(props.event._id)}>Delete</button>
-    </>
+    <div className={styles.card}>
+      <div className={styles.card2}>
+        <h3>{props.event.name}</h3>
+        <h4>{date}</h4>
+        <h4>{props.event.time}</h4>
+        <h4>{props.event.location}</h4>
+        <p>{props.event.description}</p>
+        <div className={styles.buttons}>
+          <Link to={`/events/${props.event._id}/edit`} state={{event: props.event}} >
+            <button>Edit</button>
+          </Link>
+          <button onClick={() => props.handleDeleteEvent(props.event._id)}>Delete</button>
+        </div>
+      </div>
+    </div>
   )
 }
 

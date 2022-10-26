@@ -20,9 +20,6 @@ const EventList = (props) => {
       {props.events.map(event => (
         <>
           <EventCard event={event} handleDeleteEvent={handleDeleteEvent} />
-          <Link to={`/events/${event._id}/edit`} state={{event: event}} >
-            <button>Edit</button>
-          </Link>
         </>
       ))}
     </main>
