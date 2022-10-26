@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom'
 import ResourceCard from "../../components/ResourceCard/ResourceCard"
 
 
-const ResourceList = (props) => {
+const ResourceList = ({resources}) => {
+  
+  
   return (
-    <main className={styles.container}>
-      {props.resources.map(resource => (
+    <main>
+      {resources.map(resource => (
         <ResourceCard resource={resource} key={resource._id} />
       ))}
       <Link to='/addresource'>
