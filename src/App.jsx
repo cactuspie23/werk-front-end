@@ -6,7 +6,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
-import Profile from './pages/Profile/Profile'
+import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import EventList from './pages/EventList/EventList'
 // import EventDetails from './pages/EventDetails/EventDetails'
@@ -115,14 +115,8 @@ const App = () => {
     const fetchAllResources = async () => {
       const resourceData = await resourceService.index()
         setResources(resourceData)
-
       }
-      if (user) 
-
-    }
     if (user) 
-      fetchAllJobs()
-
       fetchAllResources()
   }, [user])
 
@@ -140,7 +134,7 @@ const App = () => {
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
         <Route
-          path="/profile"
+          path="/profiles"
           element={
             <ProtectedRoute user={user}>
               <Profiles user={user} />
