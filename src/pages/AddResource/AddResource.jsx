@@ -68,13 +68,13 @@ const AddResource = (props) => {
           value={form.category}
           onChange={handleChange}
         >
-          <option value="Book">Book</option>
-          <option value="Video">Video</option>
-          <option value="Website">Website</option>
-          <option value="Interview Tip">Interview Tip</option>
-          <option value="Blog">Blog</option>
-          <option value="Article">Article</option>
-          <option value="Other">Other</option>
+          <option value="book">Book</option>
+          <option value="video">Video</option>
+          <option value="website">Website</option>
+          <option value="interview tip">Interview Tip</option>
+          <option value="blog">Blog</option>
+          <option value="article">Article</option>
+          <option value="other">Other</option>
         </select>
         <label htmlFor="skills-input">Skills</label>
         <input
