@@ -6,10 +6,9 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
-import Profile from './pages/Profile/Profile'
+import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import EventList from './pages/EventList/EventList'
-// import EventDetails from './pages/EventDetails/EventDetails'
 import NewEvent from './pages/NewEvent/NewEvent'
 import JobBoard from './pages/JobBoard/JobBoard'
 import AddJob from './pages/AddJob/AddJob'
@@ -88,8 +87,7 @@ const App = () => {
       const jobData = await jobService.index()
       setJobs(jobData)
     }
-      if (user) 
-      fetchAllJobs()
+    if (user) fetchAllJobs()
   }, [user])
 
   const handleAddResource = async (resourceData) => {
@@ -114,16 +112,9 @@ const App = () => {
   useEffect (() => {
     const fetchAllResources = async () => {
       const resourceData = await resourceService.index()
-        setResources(resourceData)
-
-      }
-      if (user) 
-
+      setResources(resourceData)
     }
-    if (user) 
-      fetchAllJobs()
-
-      fetchAllResources()
+    if (user) fetchAllResources()
   }, [user])
 
   return (
@@ -140,7 +131,7 @@ const App = () => {
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
         <Route
-          path="/profile"
+          path="/profiles"
           element={
             <ProtectedRoute user={user}>
               <Profiles user={user} />

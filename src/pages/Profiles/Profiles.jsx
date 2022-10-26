@@ -1,9 +1,15 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import MyLogs from '../../components/MyLogs/MyLogs'
 import * as profileService from '../../services/profileService'
 
 const Profiles = ({user}) => {
-  const [profiles, setProfiles] = useState([])
+  const [profiles, setProfiles] = useState({})
+
+  const [form, setForm] = useState({ 
+    date: '',
+    logEntry: '',
+    skills: '',
+  })
 
   useEffect(() => {
     const fetchProfiles = async () => {
@@ -13,19 +19,13 @@ const Profiles = ({user}) => {
     fetchProfiles()
   }, [])
 
-  const [form, setForm] = useState({ 
-    date: '',
-    logEntry: '',
-    skills: '',
-  })
-
   const handleChange = ({ target }) => {
     setForm({ ...form, [target.name]: target.value })
   }
   
   const handleAddLog = async (logData) => {
-    const newLog = await profileService.createLog(logData)
-    setProfiles({ ...profiles, myLogs: [...profiles.myLogs, newLog] })
+    const updatedProfile = await profileService.createLog(user.profile, logData)
+    setProfiles(updatedProfile)
   }
 
   const handleSubmit = (e) => {
@@ -41,8 +41,13 @@ const Profiles = ({user}) => {
   return (
     <>
       <h1>{user.name}</h1>
-
+      <h3>My Logs:</h3>
+      <article>
+        <MyLogs user={user} myLogs={profiles.myLogs} />
+      </article>
+      <h2>Add A New Log</h2>
       <form onSubmit={handleSubmit}>
+      <label htmlFor="date-input">Date: </label>
       <input
         required
         type="date"
@@ -51,6 +56,7 @@ const Profiles = ({user}) => {
         value={form.date}
         onChange={handleChange}
       />
+      <label htmlFor="logEntry-input">Log: </label>
       <textarea
         required
         type="text"
@@ -60,6 +66,7 @@ const Profiles = ({user}) => {
         placeholder="Add a Log"
         onChange={handleChange}
       />
+      <label htmlFor="skills-input">Skills: </label>
       <textarea
         type="text"
         name="skills"
