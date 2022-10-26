@@ -5,7 +5,7 @@ const MyLogs = (props) => {
   return (
     <>
       {props.myLogs.map(log => (
-        <article>
+        <article key={log._id} >
           <h3>{log.date}</h3>
           <p>Log: {log.logEntry}</p>
           <p>New Skills: {log.skills}</p>
