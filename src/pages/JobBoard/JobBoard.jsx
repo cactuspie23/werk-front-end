@@ -4,14 +4,16 @@ import { Link } from "react-router-dom"
 
 const JobBoard = ({jobs}) => {
   return (
-    <main className={styles.container}>
+    <main>
       <h1>Job Board</h1>
       <Link to='/addjob'>
         <button>Add Job</button>
       </Link>
-      {jobs.map(job => (
-        <JobCard job={job} key={job._id} />
-      ))}
+      <article className={styles.container}>
+        {jobs.map(job => (
+          <JobCard job={job} key={job._id} />
+        ))}
+      </article>
     </main>
   )
 }
