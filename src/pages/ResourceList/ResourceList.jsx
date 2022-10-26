@@ -8,12 +8,13 @@ const ResourceList = ({resources}) => {
   
   return (
     <main>
-      {resources.map(resource => (
-        <ResourceCard resource={resource} key={resource._id} />
-      ))}
+      <h1>Resources</h1>
       <Link to='/addresource'>
         <button>Add Resource</button>
       </Link>
+      {resources.map(resource => (
+        <ResourceCard resource={resource} key={resource._id} />
+      ))}
     </main>
   )
 }

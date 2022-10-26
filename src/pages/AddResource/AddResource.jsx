@@ -29,12 +29,6 @@ const AddResource = (props) => {
 
   return (
     <main className={styles.container}>
-        <button 
-        type="submit"
-        disabled={!validForm}
-        >
-          Add Resource
-        </button>
       <form autoComplete="off" onSubmit={handleSubmit} ref={formElement}>
         <label htmlFor="name-input">Resource Name</label>
         <input
@@ -92,6 +86,12 @@ const AddResource = (props) => {
           placeholder="Skills"
           onChange={handleChange}
         />
+        <button 
+        type="submit"
+        disabled={!validForm}
+        >
+          Add Resource
+        </button>
       </form>
     </main>
 
