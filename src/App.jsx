@@ -10,6 +10,7 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import EventList from './pages/EventList/EventList'
 import NewEvent from './pages/NewEvent/NewEvent'
+import EditEvent from './pages/EditEvent/EditEvent'
 import JobBoard from './pages/JobBoard/JobBoard'
 import AddJob from './pages/AddJob/AddJob'
 import JobDetails from './pages/JobDetails/JobDetails'
@@ -214,7 +215,7 @@ const App = () => {
           path="/events"
           element={
             <ProtectedRoute user={user}>
-              <EventList events={events} />
+              <EventList events={events} setEvents={setEvents} />
             </ProtectedRoute>
           }
         />
@@ -223,6 +224,14 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <NewEvent handleAddEvent={handleAddEvent}/>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="events/:id/edit"
+          element={
+            <ProtectedRoute user={user}>
+              <EditEvent setEvents={setEvents} events={events} />
             </ProtectedRoute>
           }
         />
