@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom"
+import styles from './NavBar.module.css'
 
 const NavBar = ({ user, handleLogout }) => {
   return (
-    <nav>
+    <nav className={styles.container} >
+      <h1>WERK.</h1>
       {user ?
         <ul>
-          <li>Welcome, {user.name}</li>
           <li><NavLink to="/jobs">Job Board</NavLink></li>
           <li><NavLink to="/resources">Resources</NavLink></li>
           <li><NavLink to="/events">Events</NavLink></li>
