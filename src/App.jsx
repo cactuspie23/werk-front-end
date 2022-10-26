@@ -109,7 +109,6 @@ const App = () => {
     navigate('/resources')
   }
 
-
   useEffect (() => {
     const fetchAllResources = async () => {
       const resourceData = await resourceService.index()
@@ -215,7 +214,7 @@ const App = () => {
           path="/events"
           element={
             <ProtectedRoute user={user}>
-              <EventList events={events} setEvents={setEvents} />
+              <EventList events={events} user={user} setEvents={setEvents} />
             </ProtectedRoute>
           }
         />
