@@ -109,7 +109,6 @@ const App = () => {
     navigate('/resources')
   }
 
-
   useEffect (() => {
     const fetchAllResources = async () => {
       const resourceData = await resourceService.index()
