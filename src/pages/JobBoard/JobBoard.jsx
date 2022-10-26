@@ -4,7 +4,8 @@ import { Link } from "react-router-dom"
 
 const JobBoard = ({jobs}) => {
   return (
-    <main className={styles.container} >
+    <main className={styles.container}>
+      <h1>Job Board</h1>
       <Link to='/addjob'>
         <button>Add Job</button>
       </Link>
