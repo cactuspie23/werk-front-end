@@ -1,0 +1,15 @@
+h1 {
+  text-align: center;
+}
+
+.profile-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #dadee4;
+}
+
+.profile-page section {
+  display: flex;
+  padding: 0px 5px 0px 5px;
+}

@@ -1,15 +1,9 @@
-import { useState, useRef, useEffect } from "react"
-import styles from './AddResource.module.css'
+import { useState, useRef, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 
-const AddResource = (props) => {
-  const [form, setForm] = useState({
-    name: '',
-    URL: '',
-    description: '',
-    category: 'book',
-    skills: '',
-  })
-
+const EditResource = (props) => {
+  const { state } = useLocation()
+  const [form, setForm] = useState(state)
   const [validForm, setValidForm] = useState(false)
 
   const handleChange = ({ target }) => {
@@ -18,7 +12,7 @@ const AddResource = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    props.handleAddResource(form)
+    props.handleUpdateResource(form)
   }
 
   const formElement = useRef()
@@ -28,13 +22,13 @@ const AddResource = (props) => {
   }, [form])
 
   return (
-    <main className={styles.container}>
+    <main>
       <form autoComplete="off" onSubmit={handleSubmit} ref={formElement}>
         <label htmlFor="name-input">Resource Name</label>
         <input
           required
           type="text"
-          name="name"
+          name="resourceName"
           id="name-input"
           value={form.resourceName}
           placeholder="Resource Name"
@@ -90,12 +84,11 @@ const AddResource = (props) => {
         type="submit"
         disabled={!validForm}
         >
-          Add Resource
+          Update Resource
           </button>
       </form>
     </main>
-
   )
 }
 
-export default AddResource
+  export default EditResource
