@@ -9,7 +9,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import EventList from './pages/EventList/EventList'
-import EventDetails from './pages/EventDetails/EventDetails'
+// import EventDetails from './pages/EventDetails/EventDetails'
 import NewEvent from './pages/NewEvent/NewEvent'
 import JobBoard from './pages/JobBoard/JobBoard'
 import AddJob from './pages/AddJob/AddJob'
@@ -115,8 +115,8 @@ const App = () => {
     const fetchAllResources = async () => {
       const resourceData = await resourceService.index()
         setResources(resourceData)
-      }
-      if (user) 
+    }
+    if (user) 
       fetchAllResources()
   }, [user])
 
@@ -137,7 +137,7 @@ const App = () => {
           path="/profiles"
           element={
             <ProtectedRoute user={user}>
-              <Profiles />
+              <Profiles user={user} />
             </ProtectedRoute>
           }
         />
