@@ -1,6 +1,6 @@
 
 const MyLogs = (props) => {
-  if (!props.myLogs) return <h4>No Logs</h4>
+  if (!props.myLogs) return <h4>No Logs Yet</h4>
 
   return (
     <>
