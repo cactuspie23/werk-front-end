@@ -1,13 +1,16 @@
+import * as eventService from '../../services/eventService'
 
-const EventCard = ({ event }) => {
-  const date = new Date(event.date).toLocaleDateString()
+const EventCard = (props) => {
+
+  const date = new Date(props.event.date).toLocaleDateString()
   return (
     <>
-      <h1>{event.name}</h1>
+      <h1>{props.event.name}</h1>
       <h3>{date}</h3>
-      <h3>{event.time}</h3>
-      <h3>{event.location}</h3>
-      <h4>{event.description}</h4>
+      <h3>{props.event.time}</h3>
+      <h3>{props.event.location}</h3>
+      <h4>{props.event.description}</h4>
+      <button onClick={() => props.handleDeleteEvent(props.event._id)}>Delete</button>
     </>
   )
 }

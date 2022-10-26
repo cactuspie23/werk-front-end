@@ -1,18 +1,28 @@
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import EventCard from "../../components/EventCard/EventCard"
+import * as eventService from '../../services/eventService'
 
-const EventList = ({events}) => {
-  if(!events) return <main>Loading...</main>
+const EventList = (props) => {
+  console.log('THIS IS id', props.events);
+  // console.log('THIS MAY ALSO B ID?', props.eventId)
+
+  const handleDeleteEvent = async (id) => {
+    const deletedEvent = await eventService.deleteEvent(id)
+    props.setEvents(props.events.filter(evt => evt._id !== deletedEvent._id))
+  }
+
+  if(!props.events) return <main>Loading...</main>
   return (
     <main>
       <Link to='/events/new'>
         <button>Add Event</button>
       </Link>
-      {events.map(event => (
+      {props.events.map(event => (
         <>
-          <EventCard event={event}/>
-          <Link to={`/events/${event._id}/edit`} state={{event: event}}>
-            <button>Update Event</button>
+          <EventCard event={event} handleDeleteEvent={handleDeleteEvent} />
+          <Link to={`/events/${event._id}/edit`} state={{event: event}} >
+            <button>Edit</button>
           </Link>
         </>
       ))}

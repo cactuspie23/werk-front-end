@@ -55,8 +55,6 @@ const App = () => {
     navigate('/events')
   }
 
-
-
   const handleAddJob = async (jobData) => {
     const newJob = await jobService.create(jobData)
     setJobs([newJob, ...jobs])
@@ -183,7 +181,7 @@ const App = () => {
           path="/events"
           element={
             <ProtectedRoute user={user}>
-              <EventList events={events} />
+              <EventList events={events} setEvents={setEvents} />
             </ProtectedRoute>
           }
         />
@@ -199,7 +197,7 @@ const App = () => {
           path="events/:id/edit"
           element={
             <ProtectedRoute user={user}>
-              <EditEvent events={events} />
+              <EditEvent setEvents={setEvents} events={events} />
             </ProtectedRoute>
           }
         />

@@ -5,7 +5,7 @@ import * as eventService from '../../services/eventService'
 const EditEvent = (props) => {
   const loc = useLocation()
   const navigate = useNavigate()
-  const [events, setEvents] = useState([])
+  // const [events, setEvents] = useState([])
   const [eventForm, setEventForm] = useState({
     name: loc.state.name,
     date: loc.state.date,
@@ -19,24 +19,18 @@ const EditEvent = (props) => {
     setEventForm({ ...eventForm, [evt.target.name]: evt.target.value })
   }
 
-  // console.log(state)
-
   const handleSubmit = e => {
     e.preventDefault()
     handleUpdateEvent(eventForm)
   }
 
   const handleUpdateEvent = async () => {
-    console.log('STATE._ID', loc.state._id, 'STATE.EVENT', loc.state.event._id);
+    console.log('THIS IS ID', loc.state.event._id);
     const updatedEvent = await eventService.update(loc.state.event._id, eventForm)
-    console.log('UPDATED EVENT', updatedEvent);
-    // console.log(eventId._id)
-    const updatedEventsData = events.map(event => {
-      console.log('EVENT._ID', event._id)
-      console.log('UPDATEDEVENT._ID', updatedEvent._id);
+    const updatedEventsData = props.events.map(event => {
       return event._id === updatedEvent._id ? updatedEvent : event
     })
-    setEvents(updatedEventsData)
+    props.setEvents(updatedEventsData)
     navigate('/events')
   }
 
