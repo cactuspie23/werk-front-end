@@ -1,4 +1,4 @@
-import * as eventService from '../../services/eventService'
+import { Link } from 'react-router-dom'
 
 const EventCard = (props) => {
 
@@ -10,7 +10,12 @@ const EventCard = (props) => {
       <h3>{props.event.time}</h3>
       <h3>{props.event.location}</h3>
       <h4>{props.event.description}</h4>
-      <button onClick={() => props.handleDeleteEvent(props.event._id)}>Delete</button>
+      {props.event.owner === props.user.profile &&
+          <>
+            <Link to={`/events/${props.event._id}/edit`} state={props.event}>Edit</Link>
+            <button onClick={() => props.handleDeleteEvent(props.event._id)}>Delete</button>
+          </>
+        }
     </>
   )
 }
