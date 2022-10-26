@@ -55,22 +55,7 @@ const App = () => {
     navigate('/events')
   }
 
-  const handleUpdateEvent = async (eventData) => {
-    const updatedEvent = await eventService.update(eventData)
-    const updatedEventsData = events.map(event => {
-      return eventData._id === event._id ? updatedEvent : event
-    })
-    setEvents(updatedEventsData)
-    navigate('/events')
-  }
 
-  useEffect (() => {
-    const fetchAllEvents = async () => {
-      const eventData = await eventService.index()
-      setEvents(eventData)
-    }
-    if (user) fetchAllEvents()
-  }, [user])
 
   const handleAddJob = async (jobData) => {
     const newJob = await jobService.create(jobData)
@@ -102,6 +87,11 @@ const App = () => {
       setJobs(jobData)
     }
     
+    const fetchAllEvents = async () => {
+      const eventData = await eventService.index()
+      setEvents(eventData)
+    }
+
     const fetchAllResources = async () => {
       const resourceData = await resourceService.index()
         setResources(resourceData)
@@ -109,6 +99,7 @@ const App = () => {
       if (user) 
       fetchAllJobs()
       fetchAllResources()
+      fetchAllEvents()
   }, [user])
 
   return (
@@ -208,7 +199,7 @@ const App = () => {
           path="events/:id/edit"
           element={
             <ProtectedRoute user={user}>
-              <EditEvent handleUpdateEvent={handleUpdateEvent} />
+              <EditEvent events={events} />
             </ProtectedRoute>
           }
         />

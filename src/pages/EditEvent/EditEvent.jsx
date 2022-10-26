@@ -1,18 +1,43 @@
 import { useState, useRef, useEffect } from "react"
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
+import * as eventService from '../../services/eventService'
 
 const EditEvent = (props) => {
-  const { state } = useLocation()
-  const [eventForm, setEventForm] = useState(state)
+  const loc = useLocation()
+  const navigate = useNavigate()
+  const [events, setEvents] = useState([])
+  const [eventForm, setEventForm] = useState({
+    name: loc.state.name,
+    date: loc.state.date,
+    time: loc.state.time,
+    location: loc.state.location,
+    description: loc.state.description,
+  })
   const [validForm, setValidForm] = useState(false)
-
-  const handleChange = ({ target }) => {
-    setEventForm({ ...eventForm, [target.name]: target.value })
+  console.log(loc)
+  const handleChange = evt => {
+    setEventForm({ ...eventForm, [evt.target.name]: evt.target.value })
   }
 
-  const handleSubmit = (e) => {
+  // console.log(state)
+
+  const handleSubmit = e => {
     e.preventDefault()
-    props.handleUpdateBlog(eventForm)
+    handleUpdateEvent(eventForm)
+  }
+
+  const handleUpdateEvent = async () => {
+    console.log('STATE._ID', loc.state._id, 'STATE.EVENT', loc.state.event._id);
+    const updatedEvent = await eventService.update(loc.state.event._id, eventForm)
+    console.log('UPDATED EVENT', updatedEvent);
+    // console.log(eventId._id)
+    const updatedEventsData = events.map(event => {
+      console.log('EVENT._ID', event._id)
+      console.log('UPDATEDEVENT._ID', updatedEvent._id);
+      return event._id === updatedEvent._id ? updatedEvent : event
+    })
+    setEvents(updatedEventsData)
+    navigate('/events')
   }
 
   const formElement = useRef()
