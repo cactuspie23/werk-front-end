@@ -5,6 +5,12 @@ import * as profileService from '../../services/profileService'
 const Profiles = ({user}) => {
   const [profiles, setProfiles] = useState({})
 
+  const [form, setForm] = useState({ 
+    date: '',
+    logEntry: '',
+    skills: '',
+  })
+
   useEffect(() => {
     const fetchProfiles = async () => {
       const profileData = await profileService.getProfiles()
@@ -13,20 +19,12 @@ const Profiles = ({user}) => {
     fetchProfiles()
   }, [])
 
-  const [form, setForm] = useState({ 
-    date: '',
-    logEntry: '',
-    skills: '',
-  })
-
   const handleChange = ({ target }) => {
     setForm({ ...form, [target.name]: target.value })
   }
   
   const handleAddLog = async (logData) => {
-    console.log(logData, 'log data')
     const updatedProfile = await profileService.createLog(user.profile, logData)
-    console.log(updatedProfile, 'new log')
     setProfiles(updatedProfile)
   }
 
@@ -43,7 +41,7 @@ const Profiles = ({user}) => {
   return (
     <>
       <h1>{user.name}</h1>
-
+      <h3>My Logs:</h3>
       <article>
         <MyLogs user={user} myLogs={profiles.myLogs} />
       </article>
