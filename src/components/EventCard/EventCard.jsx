@@ -12,7 +12,7 @@ const EventCard = (props) => {
       <h4>{props.event.description}</h4>
       {props.event.owner === props.user.profile &&
           <>
-            <Link to={`/events/${props.event._id}/edit`} state={props.event}>Edit</Link>
+            <Link to={`/events/${props.event._id}/edit`} state={{event: props.event}}>Edit</Link>
             <button onClick={() => props.handleDeleteEvent(props.event._id)}>Delete</button>
           </>
         }
