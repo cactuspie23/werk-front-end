@@ -20,9 +20,9 @@ async function addPhoto(photoData, profileId) {
   return await res.json()
 }
 
-const createLog = async (id, logData) => {
+const createLog = async (profileId, logData) => {
   try {
-    const res = await fetch(`${BASE_URL}/${id}/logs`, {
+    const res = await fetch(`${BASE_URL}/${profileId}/logs`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
