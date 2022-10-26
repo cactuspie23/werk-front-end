@@ -17,6 +17,8 @@ import JobDetails from './pages/JobDetails/JobDetails'
 import EditJob from './pages/EditJob/EditJob'
 import ResourceList from './pages/ResourceList/ResourceList'
 import AddResource from './pages/AddResource/AddResource'
+import ResourceDetails from './pages/ResourceDetails/ResourceDetails'
+import EditResource from './pages/EditResource/EditResource'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -55,6 +57,14 @@ const App = () => {
     navigate('/events')
   }
 
+  useEffect (() => {
+    const fetchAllEvents = async () => {
+      const eventData = await eventService.index()
+      setEvents(eventData)
+    }
+    if (user) fetchAllEvents()
+  }, [user])
+
   const handleAddJob = async (jobData) => {
     const newJob = await jobService.create(jobData)
     setJobs([newJob, ...jobs])
@@ -73,31 +83,39 @@ const App = () => {
     navigate('/jobs')
   }
 
+  useEffect(() => {
+    const fetchAllJobs = async () => {
+      const jobData = await jobService.index()
+      setJobs(jobData)
+    }
+    if (user) fetchAllJobs()
+  }, [user])
+
   const handleAddResource = async (resourceData) => {
     const newResource = await resourceService.create(resourceData)
     setResources ([newResource, ...resources])
     navigate('/resources')
   }
 
-  useEffect(() => {
-    const fetchAllJobs = async () => {
-      const jobData = await jobService.index()
-      setJobs(jobData)
-    }
-    
-    const fetchAllEvents = async () => {
-      const eventData = await eventService.index()
-      setEvents(eventData)
-    }
+  const handleUpdateResource = async (resourceData) => {
+    const updatedResource = await resourceService.updateResource(resourceData)
+    setResources(resources.map((r) => resourceData._id === r._id ? updatedResource : r))
+    navigate('/resources')
+  }
 
+  const handleDeleteResource = async (id) => {
+    const deletedResource = await resourceService.deleteResource(id)
+    setResources(resources.filter(r => r._id !== deletedResource._id))
+    navigate('/resources')
+  }
+
+
+  useEffect (() => {
     const fetchAllResources = async () => {
       const resourceData = await resourceService.index()
-        setResources(resourceData)
-      }
-      if (user) 
-      fetchAllJobs()
-      fetchAllResources()
-      fetchAllEvents()
+      setResources(resourceData)
+    }
+    if (user) fetchAllResources()
   }, [user])
 
   return (
@@ -117,7 +135,7 @@ const App = () => {
           path="/profiles"
           element={
             <ProtectedRoute user={user}>
-              <Profiles />
+              <Profiles user={user} />
             </ProtectedRoute>
           }
         />
@@ -174,6 +192,22 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <AddResource handleAddResource={handleAddResource} />
+            </ProtectedRoute>
+          }
+        />
+        <Route 
+          path="/resources/:id/edit" 
+          element={
+            <ProtectedRoute user={user}>
+              <EditResource handleUpdateResource={handleUpdateResource} />
+            </ProtectedRoute>
+          } 
+        />
+        <Route
+          path="/resources/:id"
+          element={
+            <ProtectedRoute user={user}>
+              <ResourceDetails user={user} handleDeleteResource={handleDeleteResource} /> 
             </ProtectedRoute>
           }
         />

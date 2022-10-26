@@ -16,7 +16,7 @@ const JobDetails = (props) => {
   }, [id])
 
   if(!job) return <main>Loading...</main>
-console.log(props.user)
+
   return (
     <main>
       <article>
