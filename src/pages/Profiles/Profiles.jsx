@@ -40,12 +40,10 @@ const Profiles = ({user}) => {
 
   return (
     <>
-      <h1>{user.name}</h1>
-      <h3>My Logs:</h3>
-      <article>
-        <MyLogs user={user} myLogs={profiles.myLogs} />
-      </article>
-      <h2>Add A New Log</h2>
+      <h1>Welcome, {user.name}</h1>
+      <p>This is your profile page to log your progress. Here you can keep track of anything you'd like in your job search journey. Maybe you applied to a few jobs, or learend a new skill. Now thats making progress!</p>
+
+      <h3>Add A New Log</h3>
       <form onSubmit={handleSubmit}>
       <label htmlFor="date-input">Date: </label>
       <input
@@ -77,6 +75,10 @@ const Profiles = ({user}) => {
       />
       <button type="submit" >Submit</button>
     </form>
+    <h3>My Logs:</h3>
+    <article>
+      <MyLogs user={user} myLogs={profiles.myLogs} />
+    </article>
     </>
   )
 }
