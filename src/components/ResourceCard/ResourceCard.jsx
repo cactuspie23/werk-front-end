@@ -1,18 +1,21 @@
 import { Link } from 'react-router-dom'
+import styles from './ResourceCard.module.css'
 
 const ResourceCard = ({ resource }) => {
   return (
-    <>
     <div>
+      <article className={styles.container}>
     <Link to={`/resources/${resource._id}`}>
-      <h1>{resource.name}</h1>
+        <h1>{resource.name}</h1>
     </Link>
-    <p>{resource.URL}</p>
-    <p>{resource.description}</p>
-    <p>{resource.category}</p>
-    <p>{resource.skills}</p>
+        <p>URL:<Link>{resource.URL}</Link></p>
+        <p>Description:{resource.description}</p>
+        <p>Category:{resource.category}</p>
+        <p>Skills:{resource.skills}</p>
+    </article>
     </div>
-    </>
+    
+    
   )
 }
 

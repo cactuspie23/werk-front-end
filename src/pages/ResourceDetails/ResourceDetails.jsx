@@ -31,7 +31,7 @@ const ResourceDetails = (props) => {
         <span>
             {resource.owner._id === props.user.profile &&
               <>
-                <Link to={`/resources/${id}/edit`} state={resource}>Edit</Link>
+                <Link to={`/resources/${id}/edit`} state={resource}><button>Edit</button></Link>
                 <button onClick={() => props.handleDeleteResource(id)}
                 >
                   Delete
