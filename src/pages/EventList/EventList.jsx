@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
 import EventCard from "../../components/EventCard/EventCard"
 import * as eventService from '../../services/eventService'
 
