@@ -1,20 +1,15 @@
 import styles from "./JobBoard.module.css"
+import JobCard from "../../components/JobCard/JobCard"
 import { Link } from "react-router-dom"
 
 const JobBoard = ({jobs}) => {
-
   return (
-    <main>
+    <main className={styles.container} >
       <Link to='/addjob'>
         <button>Add Job</button>
       </Link>
       {jobs.map(job => (
-        <>
-          <Link to={`/jobs/${job._id}`}>
-            <h1>{job.jobTitle}</h1>
-          </Link>
-          <h3>{job.companyName}</h3>
-        </>
+        <JobCard job={job} key={job._id} />
       ))}
     </main>
   )
