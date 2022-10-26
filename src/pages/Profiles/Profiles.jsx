@@ -12,18 +12,10 @@ const Profiles = () => {
     }
     fetchProfiles()
   }, [])
-
+  
   return (
     <main className={styles.container}>
-      <div className='profile-page'>
-        <nav>
-          <h1>My Jobs</h1>
-        </nav>
-        <section>
-          <h1>Applied</h1>
-          <h1>Not Applied</h1>
-        </section>
-      </div>
+
     </main> 
   )
 }
