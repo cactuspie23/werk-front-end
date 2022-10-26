@@ -1,6 +1,6 @@
 /* From uiverse.io by @Tiagoadag */
 .card {
-  width: 190px;
+  width: 260px;
   height: fit-content;
   background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
   border-radius: 20px;
@@ -8,7 +8,7 @@
 }
 
 .card2 {
-  width: 190px;
+  width: 260px;
   height: fit-content;
   background-color: whitesmoke;
   border-radius: 18px;
@@ -24,10 +24,14 @@
   box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
 }
 
-h3,
-h4,
-p {
+.card2 > h3,
+.card2 > h4,
+.card2 > p {
   padding: 0px 10px;
+}
+
+.card2 > h3 {
+  padding-top: 13px;
 }
 
 .buttons {
@@ -36,6 +40,31 @@ p {
   justify-content: center;
 }
 
-button {
-  margin: 0px 10px 13px 10px;
+/* From uiverse.io */
+.button {
+  padding: 1.3em 3em;
+  margin: 0px 3px 12px 3px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.button:hover {
+  background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+.button:active {
+  transform: translateY(-1px);
 }

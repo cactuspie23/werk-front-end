@@ -16,8 +16,10 @@ const EventCard = (props) => {
         <div className={styles.buttons}>
         {props.event.owner === props.user.profile &&
           <>
-            <Link to={`/events/${props.event._id}/edit`} state={props.event}>Edit</Link>
-            <button onClick={() => props.handleDeleteEvent(props.event._id)}>Delete</button>
+            <Link to={`/events/${props.event._id}/edit`} state={{event: props.event}}>
+              <button className={styles.button}>Edit</button>
+            </Link>
+            <button className={styles.button} onClick={() => props.handleDeleteEvent(props.event._id)}>Delete</button>
           </>
         }
         </div>
