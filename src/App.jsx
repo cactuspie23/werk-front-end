@@ -9,7 +9,6 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import EventList from './pages/EventList/EventList'
-// import EventDetails from './pages/EventDetails/EventDetails'
 import NewEvent from './pages/NewEvent/NewEvent'
 import JobBoard from './pages/JobBoard/JobBoard'
 import AddJob from './pages/AddJob/AddJob'
@@ -88,8 +87,7 @@ const App = () => {
       const jobData = await jobService.index()
       setJobs(jobData)
     }
-      if (user) 
-      fetchAllJobs()
+    if (user) fetchAllJobs()
   }, [user])
 
   const handleAddResource = async (resourceData) => {
@@ -113,10 +111,9 @@ const App = () => {
   useEffect (() => {
     const fetchAllResources = async () => {
       const resourceData = await resourceService.index()
-        setResources(resourceData)
+      setResources(resourceData)
     }
-    if (user) 
-      fetchAllResources()
+    if (user) fetchAllResources()
   }, [user])
 
   return (
