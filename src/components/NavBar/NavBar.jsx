@@ -4,15 +4,17 @@ import styles from './NavBar.module.css'
 const NavBar = ({ user, handleLogout }) => {
   return (
     <nav className={styles.container} >
-      <h1>WERK.</h1>
+      <section>
+        <img src='/images/werklogo.png' alt='werk logo' />
+        <NavLink to="/">WERK.</NavLink>
+      </section>
       {user ?
         <ul>
           <li><NavLink to="/jobs">Job Board</NavLink></li>
           <li><NavLink to="/resources">Resources</NavLink></li>
           <li><NavLink to="/events">Events</NavLink></li>
           <li><NavLink to="/profile">My Profile</NavLink></li>
-          <li><NavLink to="" onClick={handleLogout}>LOG OUT</NavLink></li>
-          <li><NavLink to="/changePassword">Change Password</NavLink></li>
+          <li><NavLink to="" onClick={handleLogout}>Log Out</NavLink></li>
         </ul>
       :
         <ul>

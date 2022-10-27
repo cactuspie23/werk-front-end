@@ -7,12 +7,14 @@
   position: fixed; 
   padding: 14px 21px;
   align-items: center;
-  background: white;
+  background: #BDD5ea;
+  color: black;
   border-bottom: 1px solid rgb(200, 200, 200);
 }
 
 .container img {
-  width: 50px;
+  width: 65px;
+  margin-right: 10px;
 }
 
 .container ul {

@@ -24,7 +24,7 @@
 }
 
 .about {
-  height: 50vh;
+  height: fit-content;
   background-color: #577399;
   justify-content: center;
 }
@@ -40,7 +40,7 @@
 }
 
 .about article {
-  width: 50%;
+  width: 60%;
   max-width: 200%;
 }
 
