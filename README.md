@@ -32,6 +32,7 @@ On the Job Board page, job seekers are able to add and discover jobs posted by o
 [Trello Board](https://trello.com/b/gvSZ2xAd/werk)
 
 [WireFrame, ERD, & WERK Flow](https://whimsical.com/werk-BkjCLKV4iqBnSo4PtY96wP)
+
 ---
 
 ## Contributors:
@@ -50,8 +51,14 @@ On the Job Board page, job seekers are able to add and discover jobs posted by o
 
 -GitHub
 -ReactJS
+-Node.js
+-Express
+-MongoDB
 -Netlify
 -Fly.io
+-Coolors.co (inspiration for color scheme)
+-uiverse.io (inspiration for card and button styling)
+-logos.com (logo)
 
 ---
 
