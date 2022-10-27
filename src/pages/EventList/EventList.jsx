@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import EventCard from "../../components/EventCard/EventCard"
 import * as eventService from '../../services/eventService'
+import styles from './EventList.module.css'
 
 const EventList = (props) => {
   const handleDeleteEvent = async (id) => {
@@ -12,12 +13,19 @@ const EventList = (props) => {
 
   return (
     <main>
-      <Link to='/events/new'>
-        <button>Add Event</button>
-      </Link>
-      {props.events.map(event => (
-        <EventCard event={event} handleDeleteEvent={handleDeleteEvent} user={props.user} />
-      ))}
+      <div className={styles.eventHeader}>
+        <h1>Events</h1>
+        <div>
+          <Link to='/events/new'>
+            <button>Add Event</button>
+          </Link>
+        </div>
+      </div>
+      <div className={styles.container} >
+        {props.events.map(event => (
+          <EventCard event={event} handleDeleteEvent={handleDeleteEvent} user={props.user} />
+        ))}
+      </div>
     </main>
   )
 }
