@@ -18,6 +18,9 @@ Getting Started:
 
 [Werk Back End](https://github.com/ljchu87/werk-back-end.git)
 
+[Trello](https://trello.com/b/gvSZ2xAd/werk)
+
+
 ---
 
 Contributors:

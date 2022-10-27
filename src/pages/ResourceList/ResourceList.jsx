@@ -7,7 +7,7 @@ const ResourceList = ({resources}) => {
   
   
   return (
-    <main>
+    <main className={styles.container} >
       <h1>Resources</h1>
       <Link to='/addresource'>
         <button>Add Resource</button>
