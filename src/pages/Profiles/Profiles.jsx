@@ -28,6 +28,11 @@ const Profiles = ({user}) => {
     setProfiles(updatedProfile)
   }
 
+  const handleDeleteLog = async (id) => {
+    const updatedProfile = await profileService.deleteLog(user.profile, id)
+    setProfiles(updatedProfile)
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     handleAddLog(form)
@@ -77,7 +82,7 @@ const Profiles = ({user}) => {
     </form>
     <h3>My Logs:</h3>
     <article>
-      <MyLogs user={user} myLogs={profiles.myLogs} />
+      <MyLogs user={user} myLogs={profiles.myLogs} handleDeleteLog={handleDeleteLog} />
     </article>
     </>
   )

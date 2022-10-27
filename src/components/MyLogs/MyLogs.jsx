@@ -6,9 +6,10 @@ const MyLogs = (props) => {
     <>
       {props.myLogs.map(log => (
         <article key={log._id} >
-          <h3>{log.date}</h3>
+          <h3>{new Date(log.date).toLocaleDateString()}</h3>
           <p>Log: {log.logEntry}</p>
-          <p>New Skills: {log.skills}</p>
+          {log.skills ? <p>New Skills: {log.skills}</p> : ""}
+          <button onClick={() => props.handleDeleteLog(log._id)}>Delete</button>
         </article>
       ))}
     </>
