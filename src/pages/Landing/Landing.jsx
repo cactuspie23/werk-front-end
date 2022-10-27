@@ -5,7 +5,7 @@ const Landing = ({ user }) => {
     <main className={styles.container}>
       {/* <h1>hello, {user ? user.name : 'friend'}</h1> */}
       <section className={styles.splash}>
-        <img src="/images/werk-logo5.png" alt="WERK logo" />
+        <img src="/images/werk-logo.png" alt="WERK logo" />
       </section>
       <section className={styles.about}>
         <header>
