@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
+import styles from './Profile.module.css'
 import MyLogs from '../../components/MyLogs/MyLogs'
 import * as profileService from '../../services/profileService'
 
-const Profiles = ({user}) => {
-  const [profiles, setProfiles] = useState({})
+const Profile = ({user}) => {
+  const [profile, setProfile] = useState({})
 
   const [form, setForm] = useState({ 
     date: '',
@@ -12,11 +13,11 @@ const Profiles = ({user}) => {
   })
 
   useEffect(() => {
-    const fetchProfiles = async () => {
-      const profileData = await profileService.getProfiles()
-      setProfiles(profileData)
+    const fetchProfile = async () => {
+      const profileData = await profileService.getProfile()
+      setProfile(profileData)
     }
-    fetchProfiles()
+    fetchProfile()
   }, [])
 
   const handleChange = ({ target }) => {
@@ -25,12 +26,12 @@ const Profiles = ({user}) => {
   
   const handleAddLog = async (logData) => {
     const updatedProfile = await profileService.createLog(user.profile, logData)
-    setProfiles(updatedProfile)
+    setProfile(updatedProfile)
   }
 
   const handleDeleteLog = async (id) => {
     const updatedProfile = await profileService.deleteLog(user.profile, id)
-    setProfiles(updatedProfile)
+    setProfile(updatedProfile)
   }
 
   const handleSubmit = (e) => {
@@ -44,10 +45,10 @@ const Profiles = ({user}) => {
   }
 
   return (
-    <>
+    <main className={styles.container}>
       <h1>Welcome, {user.name}</h1>
+      <img src={profile.photo} alt="" />
       <p>This is your profile page to log your progress. Here you can keep track of anything you'd like in your job search journey. Maybe you applied to a few jobs, or learend a new skill. Now thats making progress!</p>
-
       <h3>Add A New Log</h3>
       <form onSubmit={handleSubmit}>
       <label htmlFor="date-input">Date: </label>
@@ -82,10 +83,10 @@ const Profiles = ({user}) => {
     </form>
     <h3>My Logs:</h3>
     <article>
-      <MyLogs user={user} myLogs={profiles.myLogs} handleDeleteLog={handleDeleteLog} />
+      <MyLogs user={user} myLogs={profile.myLogs} handleDeleteLog={handleDeleteLog} />
     </article>
-    </>
+    </main>
   )
 }
 
-export default Profiles
+export default Profile
