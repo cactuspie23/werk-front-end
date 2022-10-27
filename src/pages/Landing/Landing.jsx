@@ -2,6 +2,7 @@ import styles from './Landing.module.css'
 
 const Landing = ({ user }) => {
   return (
+    <>
     <main className={styles.container}>
       {/* <h1>hello, {user ? user.name : 'friend'}</h1> */}
       <section className={styles.splash}>
@@ -18,6 +19,10 @@ const Landing = ({ user }) => {
         </article>
       </section>
     </main>
+    <footer className={styles.footer}>
+      <p>© 2022 HARD WERKERZ LLC. All rights reserved.</p>
+    </footer>
+    </>
   )
 }
 
