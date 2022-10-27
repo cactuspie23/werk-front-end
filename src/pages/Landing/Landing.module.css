@@ -58,3 +58,8 @@
   color: #f7f7ff;
   align-items: center;
 }
+
+.aboutP {
+  text-align: justify;
+  text-align-last: center;
+}
