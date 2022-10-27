@@ -5,16 +5,14 @@ import * as eventService from '../../services/eventService'
 const EditEvent = (props) => {
   const loc = useLocation()
   const navigate = useNavigate()
-  // const [events, setEvents] = useState([])
   const [eventForm, setEventForm] = useState({
-    name: loc.state.name,
-    date: loc.state.date,
-    time: loc.state.time,
-    location: loc.state.location,
-    description: loc.state.description,
+    name: loc.state.event.name,
+    date: loc.state.event.date,
+    time: loc.state.event.time,
+    location: loc.state.event.location,
+    description: loc.state.event.description,
   })
   const [validForm, setValidForm] = useState(false)
-  console.log(loc)
   const handleChange = evt => {
     setEventForm({ ...eventForm, [evt.target.name]: evt.target.value })
   }
@@ -25,7 +23,6 @@ const EditEvent = (props) => {
   }
 
   const handleUpdateEvent = async () => {
-    console.log('THIS IS ID', loc.state.event._id);
     const updatedEvent = await eventService.update(loc.state.event._id, eventForm)
     const updatedEventsData = props.events.map(event => {
       return event._id === updatedEvent._id ? updatedEvent : event
@@ -40,12 +37,14 @@ const EditEvent = (props) => {
     formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
   }, [eventForm])
 
+  console.log('THIS IS EVENT FORM', eventForm);
+
   return (
     <main>
       <h1>hi</h1>
       <form onSubmit={handleSubmit} ref={formElement}>
         <h1>Edit Event</h1>
-        <label htmlFor="name-input">Event Name</label>
+        <label htmlFor="name-input" >Event Name</label>
         <input 
           required 
           type="text"
