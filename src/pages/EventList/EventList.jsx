@@ -12,10 +12,15 @@ const EventList = (props) => {
   if(!props.events) return <main>Loading...</main>
 
   return (
-    <main >
-      <Link to='/events/new'>
-        <button>Add Event</button>
-      </Link>
+    <main>
+      <div className={styles.eventHeader}>
+        <h1>Events</h1>
+        <div>
+          <Link to='/events/new'>
+            <button>Add Event</button>
+          </Link>
+        </div>
+      </div>
       <div className={styles.container} >
         {props.events.map(event => (
           <EventCard event={event} handleDeleteEvent={handleDeleteEvent} user={props.user} />

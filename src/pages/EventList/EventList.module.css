@@ -1,6 +1,18 @@
+.eventHeader {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  padding: 0px 23px;
+}
+
+.eventHeader > div {
+  display: flex;
+  justify-content: right;
+  align-items:center;
+}
+
 .container {
   gap: 10px;
-  width: 100%;
+  width: 98%;
   display: grid;
   padding: 20px;
   grid-template-columns: repeat(1, 1fr);
