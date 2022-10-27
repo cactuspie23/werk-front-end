@@ -8,10 +8,10 @@ const ResourceCard = ({ resource }) => {
     <Link to={`/resources/${resource._id}`}>
         <h1>{resource.name}</h1>
     </Link>
-        <p>URL:<Link>{resource.URL}</Link></p>
-        <p>Description:{resource.description}</p>
-        <p>Category:{resource.category}</p>
-        <p>Skills:{resource.skills}</p>
+        <p>URL: <Link>{resource.URL}</Link></p>
+        <p>Description: {resource.description}</p>
+        <p>Category: {resource.category}</p>
+        <p>Skills: {resource.skills}</p>
     </article>
     </div>
     
