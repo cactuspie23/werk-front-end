@@ -6,10 +6,14 @@ const EventCard = (props) => {
   const date = new Date(props.event.date).toLocaleDateString()
   return (
     <div className={styles.card}>
-      <div className={styles.card2}>
-        <h3>{props.event.name}</h3>
-        <h4>{date}</h4>
-        <h4>{props.event.time}</h4>
+      <div className={styles.cardContent}>
+        <div className={styles.cardContentHeading}>
+          <h3 >{props.event.name}</h3>
+        </div>
+        <div className={styles.dateTime}>
+          <h4>{date}</h4>
+          <h4>{props.event.time}</h4>
+        </div>
         <h4>{props.event.location}</h4>
         <p>{props.event.description}</p>
         <div className={styles.buttons}>
