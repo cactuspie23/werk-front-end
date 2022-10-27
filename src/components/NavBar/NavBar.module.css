@@ -9,7 +9,6 @@
   align-items: center;
   background: #BDD5ea;
   color: black;
-  border-bottom: 1px solid rgb(200, 200, 200);
 }
 
 .container img {
@@ -28,7 +27,7 @@
 }
 
 .container li {
-  margin: 0 30px;
+  margin: 0 25px;
   text-align: right;
 }
 

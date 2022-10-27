@@ -4,10 +4,8 @@ import styles from './NavBar.module.css'
 const NavBar = ({ user, handleLogout }) => {
   return (
     <nav className={styles.container} >
-      <section>
         <img src='/images/werklogo.png' alt='werk logo' />
         <NavLink to="/">WERK.</NavLink>
-      </section>
       {user ?
         <ul>
           <li><NavLink to="/jobs">Job Board</NavLink></li>
