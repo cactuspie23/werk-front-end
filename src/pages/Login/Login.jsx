@@ -17,6 +17,7 @@ const LoginPage = props => {
         handleSignupOrLogin={props.handleSignupOrLogin}
         updateMessage={updateMessage}
       />
+      
     </main>
   )
 }
