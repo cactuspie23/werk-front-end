@@ -1,69 +1,31 @@
-# Decoupled MERN Stack with JWT Auth Template - Front End
+# WERK 
 
-This is the front end of a decoupled MERN Stack app that includes JWT Authentication.
+Werk is an interactive web application designed for job seekers in the tech world. This app offers a variety of features to help job seekers stay organized in one space. Below is a brief description of this app's main features. 
 
-When combined with the back end found [here](https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-back-end), you'll have all you need to build a full stack MERN app!
+Job seekers are able to add and discover jobs posted by other job seekers in the Job Board. 
 
-Use this to go build things! 🚀
+Job seekers are able to post and discover different tech events.
 
-## To Use This Template
 
-**Replace `<name-of-your-app-here>` in the commands below with the name of your app!**
+ Job seekers are able to share and discover helpful resources 
 
-```bash
-git clone https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-front-end <name-of-your-app-here>-front-end
-cd <name-of-your-app-here>-front-end
-code .
-```
 
-With the project open in VS Code, open a terminal and run:
+ Job seekers are able to log and track their progress within their profile page. 
 
-```bash
-rm -rf .git
-```
+---
 
-Here's what your command line output should like after this step (note that the indicator that we are in a git repository is gone!)
+Getting Started:
 
-<img src="https://i.imgur.com/L47kNOZ.png" alt="The command line before and after running the rm -rf .git command. Before git:(main) is visible indiating that the directory contains a git repository, after the command it is not.">
+[Werk Back End](https://github.com/ljchu87/werk-back-end.git)
 
-Re-initialize a git repository:
+---
 
-```bash
-git init
-```
+Contributors:
 
-Create a repo for this project on GitHub and add that remote to your project with:
+---
 
-```bash
-git remote add origin your-repo-URL-here
-```
+Technologies Used:
 
-Run `npm i` to fetch the template's dependencies:
+---
 
-```bash
-npm i
-```
-
-touch a `.env` file:
-
-```bash
-touch .env
-```
-
-Fill it with the following:
-
-```
-REACT_APP_BACK_END_SERVER_URL=http://localhost:3001
-```
-
-> 🚨 DO NOT place secrets in this `.env` file. The contents of this file WILL be exposed to site visitors. We are only using the front-end .env to create variables specific to the environment the application is running in.
-
-Delete this README.md, then make an initial commit:
-
-```bash
-git add .
-git commit -m "initial commit"
-git push origin main
-```
-
-You're done!
+Next Steps:
