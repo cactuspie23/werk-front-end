@@ -1,4 +1,3 @@
-import * as eventService from '../../services/eventService'
 import styles from './EventCard.module.css'
 import { Link } from 'react-router-dom'
 
