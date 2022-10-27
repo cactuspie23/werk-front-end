@@ -36,4 +36,18 @@ const createLog = async (profileId, logData) => {
   }
 }
 
-export { getProfiles, addPhoto, createLog }
+const deleteLog = async (profileId, id) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${profileId}/logs/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export { getProfiles, addPhoto, createLog, deleteLog }
