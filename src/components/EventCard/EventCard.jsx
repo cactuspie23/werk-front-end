@@ -8,7 +8,7 @@ const EventCard = (props) => {
     <div className={styles.card}>
       <div className={styles.cardContent}>
         <div className={styles.cardContentHeading}>
-          <h3 >{props.event.name}</h3>
+          <h1 >{props.event.name}</h1>
         </div>
         <div className={styles.dateTime}>
           <h4>{date}</h4>

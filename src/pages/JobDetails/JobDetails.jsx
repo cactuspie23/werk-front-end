@@ -20,26 +20,37 @@ const JobDetails = (props) => {
 
   return (
     <main>
-      <section>
-        <h1>Job Detail</h1>
-      </section>
-      <section className={styles.container}>
-      <article>
-        <h1>{job.jobTitle}</h1>
-        <h3>Company: {job.companyName}</h3>
-        <h3>Website: <Link>{job.url}</Link></h3>
-        <h3>Details: {job.JobDetails}</h3>
-        {job.skills ? <h3>Skills: {job.skills}</h3> : ""}
-      </article>
-      <span>
-        {job.owner._id === props.user.profile &&
-          <>
-            <Link to={`/jobs/${id}/edit`} state={job}>Edit</Link>
-            <button onClick={() => props.handleDeleteJob(id)}>Delete</button>
-          </>
-        }
-      </span>
-      </section>
+      <div className={styles.details}>
+        <section>
+          <h1>Job Detail</h1>
+        </section>
+        <section className={styles.container}>
+        <article>
+          <h1>{job.jobTitle}</h1>
+          <h3 className={styles.label}>Company: </h3>
+          <h3 className={styles.data}>{job.companyName}</h3>
+          <h3 className={styles.label}>Website: </h3>
+          <Link><h3 className={styles.data}>{job.url}</h3></Link>
+          <h3 className={styles.label}>Details: </h3>
+          <h3 className={styles.data}>{job.jobDetails}</h3>
+          {job.skills ? <h3 className={styles.label}>Skills: {job.skills}</h3> : ""}
+        </article>
+        <span>
+          {job.owner._id === props.user.profile &&
+            <div class='buttons'>
+              <Link to={`/jobs/${id}/edit`} state={job}>
+                <div class='btn'>
+                  <button className={styles.jobBtn}>Edit</button>
+                </div>
+              </Link>
+              <div class='btn'>
+                <button className={styles.jobBtn} onClick={() => props.handleDeleteJob(id)}>Delete</button>
+              </div>
+            </div>
+          }
+        </span>
+        </section>
+      </div>
     </main>
   )
 }
