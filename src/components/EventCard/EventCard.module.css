@@ -72,6 +72,7 @@
   transition: all 0.3s ease 0s;
   cursor: pointer;
   outline: none;
+  font-weight: bold;
 }
 
 .button:hover {

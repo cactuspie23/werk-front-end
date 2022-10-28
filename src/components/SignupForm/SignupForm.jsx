@@ -43,12 +43,12 @@ const SignupForm = props => {
   }
 
   return (
-    <form
-      autoComplete="off"
-      onSubmit={handleSubmit}
-      className={styles.container}
-    >
-      <div className={styles.inputContainer}>
+    <div class='input-form'>
+      <form
+        autoComplete="off"
+        onSubmit={handleSubmit}
+        className={styles.container}
+      >
         <label htmlFor="name" className={styles.label}>Name</label>
         <input
           type="text"
@@ -58,8 +58,6 @@ const SignupForm = props => {
           name="name"
           onChange={handleChange}
         />
-      </div>
-      <div className={styles.inputContainer}>
         <label htmlFor="email" className={styles.label}>Email</label>
         <input
           type="text"
@@ -69,8 +67,6 @@ const SignupForm = props => {
           name="email"
           onChange={handleChange}
         />
-      </div>
-      <div className={styles.inputContainer}>
         <label htmlFor="password" className={styles.label}>Password</label>
         <input
           type="password"
@@ -80,8 +76,6 @@ const SignupForm = props => {
           name="password"
           onChange={handleChange}
         />
-      </div>
-      <div className={styles.inputContainer}>
         <label htmlFor="confirm" className={styles.label}>
           Confirm Password
         </label>
@@ -93,8 +87,6 @@ const SignupForm = props => {
           name="passwordConf"
           onChange={handleChange}
         />
-      </div>
-      <div className={styles.inputContainer}>
         <label htmlFor="photo-upload" className={styles.label}>
           Upload Photo
         </label>
@@ -104,16 +96,14 @@ const SignupForm = props => {
           name="photo"
           onChange={handleChangePhoto}
         />
-      </div>
-      <div className={styles.inputContainer}>
         <button disabled={isFormInvalid()} className={styles.button}>
           Sign Up
         </button>
         <Link to="/">
           <button>Cancel</button>
         </Link>
-      </div>
-    </form>
+      </form>
+    </div>
   )
 }
 
