@@ -46,8 +46,10 @@ const Profile = ({user}) => {
 
   return (
     <main className={styles.container}>
-      <h1>Welcome, {user.name}</h1>
-      <img src={profile.photo} alt="" />
+      <header>
+        <h1>Welcome, {user.name}</h1>
+        <img src={profile.photo} alt="" />
+      </header>
       <p>This is your profile page to log your progress. Here you can keep track of anything you'd like in your job search journey. Maybe you applied to a few jobs, or learend a new skill. Now thats making progress!</p>
       <h3>Add A New Log</h3>
       <form onSubmit={handleSubmit}>

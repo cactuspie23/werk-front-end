@@ -23,6 +23,7 @@ const EditJob = (props) => {
 
   return (
     <main>
+      <h1>Edit Job</h1>
       <form onSubmit={handleSubmit} ref={formElement}>
         <label htmlFor="title-input">Job Title</label>
         <input
