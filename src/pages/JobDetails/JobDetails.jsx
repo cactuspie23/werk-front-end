@@ -20,9 +20,11 @@ const JobDetails = (props) => {
   return (
     <main>
       <article>
-        <h1>{job.jobTitle.toUpperCase()}</h1>
+        <h1>{job.jobTitle}</h1>
         <h3>Company: {job.companyName}</h3>
         <h3>Website: <Link>{job.url}</Link></h3>
+        <p>Details: {job.JobDetails}</p>
+        {job.skills ? <p>Skills: {job.skills}</p> : ""}
       </article>
       <span>
         {job.owner._id === props.user.profile &&

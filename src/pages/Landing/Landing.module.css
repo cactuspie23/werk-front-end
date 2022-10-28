@@ -43,8 +43,12 @@
 }
 
 .about article {
+
+  width: 60%;
+
   display: flex;
   width: 50%;
+
   max-width: 200%;
   justify-content: space-between;
 }
