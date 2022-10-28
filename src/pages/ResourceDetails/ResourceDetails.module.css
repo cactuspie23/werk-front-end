@@ -1,3 +1,70 @@
+h1{
+  text-align: center;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.container {
+  width: 70%;
+  max-width: 750px;
+  height: fit fit-content;
+  padding: 14px 21px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  background-color: #f0f3f5;
+  box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
+  -moz-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
+  -webkit-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
+}
+
+.container h1 {
+  margin-top: 10px;
+  font-size: 20px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+}
+
+.data {
+  font-size: 16px;
+  font-weight: 100;
+}
+
+.label {
+  margin-top: 19px;
+  font-size: 18px;
+}
+
+/* .details section > h1 {
+  font-size: 27px; */
+
+@media only screen and (min-width: 900px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
 .resourceBtn {
   margin: 12px 30px;
 }
