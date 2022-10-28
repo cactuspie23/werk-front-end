@@ -1,5 +1,5 @@
 .container {
-  width: 90%;
+  width: 98%;
   height: 200px;
   padding: 14px 21px;
   border-radius: 5px;
@@ -15,7 +15,7 @@
   width: 100%;
 }
 
-.container h1 {
+.container h2 {
   margin: 0;
   font-size: 19px;
   overflow: hidden;

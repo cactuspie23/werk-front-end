@@ -9,6 +9,7 @@
   align-items: center;
   background: #BDD5ea;
   color: black;
+  font-family: 'Merriweather', serif;
 }
 
 .container img {
@@ -21,7 +22,6 @@
   width: 100%;
   display: flex;
   list-style: none;
-  font-weight: bold;
   align-items: center;
   justify-content: flex-end;
 }
