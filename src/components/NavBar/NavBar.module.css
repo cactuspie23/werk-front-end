@@ -7,12 +7,13 @@
   position: fixed; 
   padding: 14px 21px;
   align-items: center;
-  background: white;
-  border-bottom: 1px solid rgb(200, 200, 200);
+  background: #BDD5ea;
+  color: black;
 }
 
 .container img {
-  width: 50px;
+  width: 65px;
+  margin-right: 10px;
 }
 
 .container ul {
@@ -26,7 +27,7 @@
 }
 
 .container li {
-  margin: 0 30px;
+  margin: 0 25px;
   text-align: right;
 }
 
