@@ -11,10 +11,12 @@ const ResourceList = ({resources}) => {
     <div className={styles.resourceHeader}>
       <h1>Resources</h1>
       <div>
-      <Link to='/addresource'>
-        <button>Add Resource</button>
-      </Link> 
-      </div>
+        <Link to='/addresource'>
+          <div class='submit-button'>
+            <button>Add Resource</button>
+          </div>
+        </Link>
+      </div> 
     </div>  
     <div className={styles.container} >
       {resources.map(resource => (

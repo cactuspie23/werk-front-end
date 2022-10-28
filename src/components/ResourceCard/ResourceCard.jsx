@@ -6,7 +6,7 @@ const ResourceCard = ({ resource }) => {
     <div>
       <article className={styles.container}>
     <Link to={`/resources/${resource._id}`}>
-        <h2>{resource.name}</h2>
+        <h1>{resource.name}</h1>
     </Link>
         <p>URL: <Link>{resource.URL}</Link></p>
         <p>Description: {resource.description}</p>

@@ -2,7 +2,7 @@
 
 Werk is an interactive web application designed for job seekers in the tech world. This app offers a variety of features to help job seekers stay organized in one space. Below is a brief description of this app's main features. 
 
-  *add screenshot of Landing Page*
+ [WERK Landing Page](https://user-images.githubusercontent.com/109775689/198454978-fa2bfb44-5aba-4ca8-9fea-2e9a01c3c16a.png)
 
 On the Job Board page, job seekers are able to add and discover jobs posted by others in the WERK community.
 
@@ -37,13 +37,13 @@ On the Job Board page, job seekers are able to add and discover jobs posted by o
 
 ## Contributors:
 
--Alyssa DeMartinis:[Alyssa's GitHub](https://github.com/cactuspie23)
+-Alyssa DeMartinis: [Alyssa's GitHub](https://github.com/cactuspie23)
 
--Lauren Hatchett:[Lauren's GitHub](https://github.com/laurenhatchett)
+-Lauren Hatchett: [Lauren's GitHub](https://github.com/laurenhatchett)
 
--Leon Chu:[Leon's GitHub](https://github.com/ljchu87)
+-Leon Chu: [Leon's GitHub](https://github.com/ljchu87)
 
--Rachel Hassett:[Rachel's GitHub](https://github.com/racssett)
+-Rachel Hassett: [Rachel's GitHub](https://github.com/racssett)
 
 ---
 
