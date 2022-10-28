@@ -92,16 +92,23 @@ const SignupForm = props => {
         </label>
         <input
           type="file"
+          class='photo-input'
           id="photo-upload"
           name="photo"
           onChange={handleChangePhoto}
         />
-        <button disabled={isFormInvalid()} className={styles.button}>
-          Sign Up
-        </button>
-        <Link to="/">
-          <button>Cancel</button>
-        </Link>
+        <div class='buttons'>
+          <div class='submit-button'>
+            <button disabled={isFormInvalid()} className={styles.button}>
+              Sign Up
+            </button>
+          </div>
+          <Link to="/">
+            <div class='submit-button'>
+              <button>Cancel</button>
+            </div>
+          </Link>
+        </div>
       </form>
     </div>
   )

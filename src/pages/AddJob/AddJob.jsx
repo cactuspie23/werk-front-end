@@ -5,11 +5,8 @@ const AddJob = (props) => {
     jobTitle: '',
     companyName: '',
     url: '',
-    resume: '',
-    coverLetter: '',
     jobDetails: '',
     skills: '',
-    private: false,
   })
 
   const [validForm, setValidForm] = useState(false)
@@ -62,26 +59,9 @@ const AddJob = (props) => {
           placeholder="URL"
           onChange={handleChange}
         />
-        <label htmlFor="resume-input">Resume</label>
-				<textarea
-          type="text"
-          name="resume"
-          id="resume-input"
-          value={form.resume}
-          placeholder="Resume"
-          onChange={handleChange}
-        />
-        <label htmlFor="coverLetter-input">Cover Letter</label>
-				<textarea
-          type="text"
-          name="coverLetter"
-          id="coverLetter-input"
-          value={form.coverLetter}
-          placeholder="Cover Letter"
-          onChange={handleChange}
-        />
         <label htmlFor="jobDetails-input">Job Details</label>
 				<textarea
+          required
           type="text"
           name="jobDetails"
           id="jobDetails-input"
@@ -96,14 +76,6 @@ const AddJob = (props) => {
           id="skills-input"
           value={form.skills}
           placeholder="Skills"
-          onChange={handleChange}
-        />
-        <label htmlFor="private-input">Private</label>
-        <input 
-          type="checkbox"
-          name="private"
-          id="private-input"
-          value={form.private}
           onChange={handleChange}
         />
         <button 
