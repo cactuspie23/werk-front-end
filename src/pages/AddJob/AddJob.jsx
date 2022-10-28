@@ -28,6 +28,7 @@ const AddJob = (props) => {
 
   return (
     <main>
+      <h1>Add Job</h1>
       <form onSubmit={handleSubmit} ref={formElement}>
         <label htmlFor="title-input">Job Title</label>
         <input
