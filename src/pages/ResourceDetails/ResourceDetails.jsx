@@ -22,13 +22,17 @@ const ResourceDetails = (props) => {
 
   return (
     <main>
-      <article>
+      <div className={styles.details}>
+      <h1>Resource Detail</h1>
+      <section className={styles.container}>
+        <article>
         <h1>{resource.name}</h1>
         <h3><Link>{resource.URL}</Link></h3>
         <h3>{resource.description}</h3>
         <h3>{resource.category}</h3>
         <h3>{resource.skills}</h3>
-      </article>
+        </article>
+      </section>
       <span>
         {resource.owner._id === props.user.profile &&
           <div class='buttons'>
@@ -46,6 +50,7 @@ const ResourceDetails = (props) => {
           </div>
         }
       </span>
+      </div>
     </main>
   )
 }
