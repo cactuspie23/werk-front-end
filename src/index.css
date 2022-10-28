@@ -20,16 +20,118 @@ a {
   text-decoration: none;
 }
 
+
+
+.form-title {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.input-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  min-width: 290px;
+}
+
 form {
-  width: 100%;
+  width: 80%;
   display: flex;
   max-width: 500px;
   border-radius: 5px;
   flex-direction: column;
   background-color: white;
-  padding: 21px 21px 28px 21px;
+  padding: 16px 21px 28px 21px;
   border: 1px solid rgb(220, 220, 220);
   box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
   -moz-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
   -webkit-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
+}
+
+label {
+  margin: 15px 0px 3px 10px;
+}
+
+input {
+  margin: 0px 10px;
+  height: 19px;
+}
+
+select {
+  margin: 0px 10px;
+}
+
+textarea {
+  margin: 0px 10px;
+  resize: vertical;
+}
+
+.submit-button {
+  display: flex;
+  justify-content: center;
+}
+
+.submit-button > button { 
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 10px 14px;
+  width: fit-content;
+  margin-top: 20px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #495867;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  font-weight: bold;
+}
+
+.submit-button > button:hover {
+  box-shadow: 0px 8px 12px rgba(73, 88, 103, 0.4);
+}
+
+.submit-button > button:disabled {
+  background-color: rgba(73, 88, 103, 0.6);
+}
+
+.photo-input {
+  margin-top: 2px;
+  height: fit-content;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.buttons > .submit-button {
+  margin: 0px 16px 0px 0px;
+}
+
+::-webkit-file-upload-button {
+  font-size: 9.5px;
+  text-transform: uppercase;
+  padding: 4px 6px;
+  letter-spacing: 0.3px;
+  width: fit-content;
+  margin-top: 20px;
+  color: #fff;
+  background-color: rgba(73, 88, 103, 0.6);
+  border: 1.3px solid rgba(73, 88, 103, 0.7);
+  border-radius: 4px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  font-weight: bold;
+}
+
+::-webkit-file-upload-button:hover {
+  background-color: rgb(73, 88, 103);
 }

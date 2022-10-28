@@ -16,15 +16,15 @@ const EventCard = (props) => {
         </div>
         <h4>{props.event.location}</h4>
         <p>{props.event.description}</p>
-        <div className={styles.buttons}>
-        {props.event.owner === props.user.profile &&
-          <>
-            <Link to={`/events/${props.event._id}/edit`} state={{event: props.event}}>
-              <button className={styles.button}>Edit</button>
-            </Link>
-            <button className={styles.button} onClick={() => props.handleDeleteEvent(props.event._id)}>Delete</button>
-          </>
-        }
+        <div class='buttons'>
+          {props.event.owner === props.user.profile &&
+            <>
+              <Link to={`/events/${props.event._id}/edit`} state={{event: props.event}}>
+                <button className={styles.button}>Edit</button>
+              </Link>
+              <button className={styles.button} onClick={() => props.handleDeleteEvent(props.event._id)}>Delete</button>
+            </>
+          }
         </div>
       </div>
     </div>
