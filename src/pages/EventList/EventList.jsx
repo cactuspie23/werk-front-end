@@ -17,7 +17,7 @@ const EventList = (props) => {
         <h1>Events</h1>
         <div>
           <Link to='/events/new'>
-            <button>Add Event</button>
+            <button className={styles.button}>Add Event</button>
           </Link>
         </div>
       </div>
