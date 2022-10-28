@@ -32,13 +32,13 @@ On the Job Board page, job seekers are able to add and discover jobs posted by o
 
 ## Contributors:
 
--Alyssa DeMartinis: [Alyssa's GitHub](https://github.com/cactuspie23)
+- Alyssa DeMartinis: [Alyssa's GitHub](https://github.com/cactuspie23)
 
--Lauren Hatchett: [Lauren's GitHub](https://github.com/laurenhatchett)
+- Lauren Hatchett: [Lauren's GitHub](https://github.com/laurenhatchett)
 
--Leon Chu: [Leon's GitHub](https://github.com/ljchu87)
+- Leon Chu: [Leon's GitHub](https://github.com/ljchu87)
 
--Rachel Hassett: [Rachel's GitHub](https://github.com/racssett)
+- Rachel Hassett: [Rachel's GitHub](https://github.com/racssett)
 
 ---
 
