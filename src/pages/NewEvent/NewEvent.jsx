@@ -38,6 +38,7 @@ const NewEvent = (props) => {
               required 
               type="text"
               name="name"
+              autoComplete="off"
               id="name-input"
               value={eventForm.name}
               placeholder="Name"
@@ -67,6 +68,7 @@ const NewEvent = (props) => {
             required 
             type="text"
             name="location"
+            autoComplete="complete"
             id="location-input"
             value={eventForm.location}
             placeholder="Location"
@@ -77,6 +79,7 @@ const NewEvent = (props) => {
             required 
             type="text"
             name="description"
+            autoComplete="off"
             id="description-input"
             value={eventForm.description}
             placeholder="Description"

@@ -9,7 +9,9 @@ const MyLogs = (props) => {
           <h3>{new Date(log.date).toLocaleDateString()}</h3>
           <p>Log: {log.logEntry}</p>
           {log.skills ? <p>New Skills: {log.skills}</p> : ""}
-          <button onClick={() => props.handleDeleteLog(log._id)}>Delete</button>
+          <div class='log-delete-button'>
+            <button onClick={() => props.handleDeleteLog(log._id)}>Delete</button>
+          </div>
         </article>
       ))}
     </>

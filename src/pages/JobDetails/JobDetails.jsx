@@ -28,7 +28,7 @@ const JobDetails = (props) => {
         <h1>{job.jobTitle}</h1>
         <h3>Company: {job.companyName}</h3>
         <h3>Website: <Link>{job.url}</Link></h3>
-        <h3>Details: {job.JobDetails}</h3>
+        <h3>Details: {job.jobDetails}</h3>
         {job.skills ? <h3>Skills: {job.skills}</h3> : ""}
       </article>
       <span>
