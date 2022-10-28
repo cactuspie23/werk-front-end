@@ -1,9 +1,10 @@
+import styles from './MyLogs.module.css'
 
 const MyLogs = (props) => {
   if (!props.myLogs) return <h4>No Logs Yet</h4>
 
   return (
-    <>
+    <div className={styles.container}>
       {props.myLogs.map(log => (
         <article key={log._id} >
           <h3>{new Date(log.date).toLocaleDateString()}</h3>
@@ -14,7 +15,7 @@ const MyLogs = (props) => {
           </div>
         </article>
       ))}
-    </>
+    </div>
   )
 }
 

@@ -52,7 +52,7 @@ const Profile = ({user}) => {
       </header>
       <p>This is your profile page to log your progress. Here you can keep track of anything you'd like in your job search journey. Maybe you applied to a few jobs, or learend a new skill. Now thats making progress!</p>
       <div class='form-title'> 
-        <h3>Add A New Log</h3>
+        <h1 className={styles.newLogHeader}>Add A New Log</h1>
       </div> 
       <div class='input-form'>
         <form onSubmit={handleSubmit}>
@@ -89,7 +89,7 @@ const Profile = ({user}) => {
         </div>
       </form>
     </div>
-    <h3>My Logs:</h3>
+    <h1 className={styles.myLogs}>My Logs:</h1>
     <article>
       <MyLogs user={user} myLogs={profile.myLogs} handleDeleteLog={handleDeleteLog} />
     </article>
