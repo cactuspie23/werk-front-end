@@ -15,6 +15,7 @@
 .container section > img {
   width: 65%;
   min-width: 350px;
+  max-width: 850px;
 }
 
 .splash {
@@ -27,11 +28,13 @@
   height: fit-content;
   background-color: #577399;
   justify-content: center;
+  padding: 30px 0;
+  /* margin: 0 0 15px 0; */
 }
 
 .about header {
   margin: 0;
-  padding: 5px 0;
+  padding: 5px 0 5px 0;
   width: 100%;
   display: flex;
   align-items: center;
@@ -40,8 +43,14 @@
 }
 
 .about article {
+
   width: 60%;
+
+  display: flex;
+  width: 50%;
+
   max-width: 200%;
+  justify-content: space-between;
 }
 
 .about article p {
@@ -63,3 +72,31 @@
   text-align: justify;
   text-align-last: center;
 }
+
+.footer {
+  padding: 40px 0px;
+  display: flex;
+  background: #f7f7ff;
+  justify-content: center;
+  color: #495867;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 15px;
+}
+
+/* @media only screen and (max-width: 1200px) {
+  .about {
+    height: 600px;
+  }
+} 
+
+@media only screen and (max-width: 480px) {
+  .about {
+    height: 100px;
+  }
+  .container section > img {
+    min-width: 740px;
+  }
+}  */
