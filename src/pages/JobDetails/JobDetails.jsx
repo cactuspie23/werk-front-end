@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import * as jobService from '../../services/jobService'
+import styles from './JobDetails.module.css'
 import { Link } from "react-router-dom"
 
 const JobDetails = (props) => {
@@ -19,12 +20,16 @@ const JobDetails = (props) => {
 
   return (
     <main>
+      <section>
+        <h1>Job Detail</h1>
+      </section>
+      <section className={styles.container}>
       <article>
         <h1>{job.jobTitle}</h1>
         <h3>Company: {job.companyName}</h3>
         <h3>Website: <Link>{job.url}</Link></h3>
-        <p>Details: {job.JobDetails}</p>
-        {job.skills ? <p>Skills: {job.skills}</p> : ""}
+        <h3>Details: {job.JobDetails}</h3>
+        {job.skills ? <h3>Skills: {job.skills}</h3> : ""}
       </article>
       <span>
         {job.owner._id === props.user.profile &&
@@ -34,6 +39,7 @@ const JobDetails = (props) => {
           </>
         }
       </span>
+      </section>
     </main>
   )
 }
