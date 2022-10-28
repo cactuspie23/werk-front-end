@@ -7,15 +7,21 @@ const ResourceList = ({resources}) => {
   
   
   return (
-    <main className={styles.container} >
+  <main>
+    <div className={styles.resourceHeader}>
       <h1>Resources</h1>
+      <div>
       <Link to='/addresource'>
         <button>Add Resource</button>
-      </Link>
+      </Link> 
+      </div>
+    </div>  
+    <div className={styles.container} >
       {resources.map(resource => (
         <ResourceCard resource={resource} key={resource._id} />
       ))}
-    </main>
+    </div>
+  </main>
   )
 }
 

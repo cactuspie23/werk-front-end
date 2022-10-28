@@ -11,6 +11,10 @@
 }
 
 
+.container span {
+  width: 100%;
+}
+
 .container h1 {
   margin: 0;
   font-size: 19px;
