@@ -91,7 +91,7 @@ const AddResource = (props) => {
         disabled={!validForm}
         >
           Add Resource
-          </button>
+        </button>
       </form>
     </main>
 

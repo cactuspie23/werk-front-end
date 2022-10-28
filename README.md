@@ -1,69 +1,69 @@
-# Decoupled MERN Stack with JWT Auth Template - Front End
+# [WERK](https://werk-smarter.netlify.app) 
 
-This is the front end of a decoupled MERN Stack app that includes JWT Authentication.
+Werk is an interactive web application designed for job seekers in the tech world. This app offers a variety of features to help job seekers stay organized in one space. Below is a brief description of this app's main features. 
 
-When combined with the back end found [here](https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-back-end), you'll have all you need to build a full stack MERN app!
+  *add screenshot of Landing Page*
 
-Use this to go build things! 🚀
+On the Job Board page, job seekers are able to add and discover jobs posted by others in the WERK community.
 
-## To Use This Template
+*add screenshot of the Job Board page*
 
-**Replace `<name-of-your-app-here>` in the commands below with the name of your app!**
+ On the Resources page, job seekers are able to share and discover resources that have been helpful in their job search journey.
 
-```bash
-git clone https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-front-end <name-of-your-app-here>-front-end
-cd <name-of-your-app-here>-front-end
-code .
-```
+ *add screnshot of the Resources page*
 
-With the project open in VS Code, open a terminal and run:
+ On the Events page, job seekers are able to post and discover different tech events that are happening.
 
-```bash
-rm -rf .git
-```
+*add screenshot of the Events Page*
 
-Here's what your command line output should like after this step (note that the indicator that we are in a git repository is gone!)
 
-<img src="https://i.imgur.com/L47kNOZ.png" alt="The command line before and after running the rm -rf .git command. Before git:(main) is visible indiating that the directory contains a git repository, after the command it is not.">
+ On the Profile page, job seekers are able to create logs to track their progress.
 
-Re-initialize a git repository:
+*add screenshot of the Profile Page*
 
-```bash
-git init
-```
+ ## Checkout [WERK](https://werk-smarter.netlify.app)
 
-Create a repo for this project on GitHub and add that remote to your project with:
+---
 
-```bash
-git remote add origin your-repo-URL-here
-```
+## Getting Started:
 
-Run `npm i` to fetch the template's dependencies:
+[WERK Back End](https://github.com/ljchu87/werk-back-end.git)
 
-```bash
-npm i
-```
+[Trello Board](https://trello.com/b/gvSZ2xAd/werk)
 
-touch a `.env` file:
+[WireFrame, ERD, & WERK Flow](https://whimsical.com/werk-BkjCLKV4iqBnSo4PtY96wP)
 
-```bash
-touch .env
-```
+---
 
-Fill it with the following:
+## Contributors:
 
-```
-REACT_APP_BACK_END_SERVER_URL=http://localhost:3001
-```
+-Alyssa DeMartinis:[Alyssa's GitHub](https://github.com/cactuspie23)
 
-> 🚨 DO NOT place secrets in this `.env` file. The contents of this file WILL be exposed to site visitors. We are only using the front-end .env to create variables specific to the environment the application is running in.
+-Lauren Hatchett:[Lauren's GitHub](https://github.com/laurenhatchett)
 
-Delete this README.md, then make an initial commit:
+-Leon Chu:[Leon's GitHub](https://github.com/ljchu87)
 
-```bash
-git add .
-git commit -m "initial commit"
-git push origin main
-```
+-Rachel Hassett:[Rachel's GitHub](https://github.com/racssett)
 
-You're done!
+---
+
+## Technologies Used:
+
+-GitHub
+-ReactJS
+-Node.js
+-Express
+-MongoDB
+-Netlify
+-Fly.io
+-Coolors.co (inspiration for color scheme)
+-uiverse.io (inspiration for card and button styling)
+-logos.com (logo)
+
+---
+
+## Ice Box:
+-Users can post cover letter and resume in order to receive feedback from other users
+-Users can search for a mentor
+-Users can add and view comments on the Resource posts
+-Users can save a job from the Job Board and add it to a My Job List on their Profile page
