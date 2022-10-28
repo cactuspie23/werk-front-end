@@ -12,7 +12,7 @@ const ResourceList = ({resources}) => {
       <h1>Resources</h1>
       <div>
         <Link to='/addresource'>
-          <div class='submit-button'>
+          <div class='btn'>
             <button>Add Resource</button>
           </div>
         </Link>
