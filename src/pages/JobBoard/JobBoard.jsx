@@ -7,6 +7,7 @@ const JobBoard = ({jobs}) => {
     <main>
       <header className={styles.jobHeader}>
       <h1>Job Board</h1>
+      <p></p>
       <div>
         <Link to='/addjob'>
           <button>Add Job</button>
