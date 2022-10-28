@@ -2,22 +2,32 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  margin: 15px;
 }
 
 .container header {
   display: flex;
-  margin: 18px;
+  margin: 18px 0px 0px 6px;
 }
 
 .container > p { 
   display: flex;
-  width: 60%;
+  width: 90%;
   padding: 0px 5px;
 }
 
 .container header > img {
   width: 70px;
-  margin-right: 12px;
+  margin-left: 15px;
   border-radius: 50%;
   padding: 0 10px;
+}
+
+.myLogs {
+  margin: 45px 0px 0px 10px;
+  font-size: 20px;
+}
+
+.newLogHeader {
+  font-size: 21.7px;
 }

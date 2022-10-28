@@ -25,7 +25,7 @@
 }
 
 .cardContentHeading {
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .dateTime {
@@ -39,11 +39,10 @@
   margin: 0px;
 }
 
-.card2 > h3,
-.card2 > h4,
-.card2 > p {
+.cardContent > p {
   padding: 0px 10px;
-  margin: 0px;
+  margin: 0px 0px 20px 0px;
+  font-size: 14.2px;
 }
 
 .card2 > h3 {

@@ -51,39 +51,45 @@ const Profile = ({user}) => {
         <img src={profile.photo} alt="" />
       </header>
       <p>This is your profile page to log your progress. Here you can keep track of anything you'd like in your job search journey. Maybe you applied to a few jobs, or learend a new skill. Now thats making progress!</p>
-      <h3>Add A New Log</h3>
-      <form onSubmit={handleSubmit}>
-      <label htmlFor="date-input">Date: </label>
-      <input
-        required
-        type="date"
-        name="date"
-        id="date-input"
-        value={form.date}
-        onChange={handleChange}
-      />
-      <label htmlFor="logEntry-input">Log: </label>
-      <textarea
-        required
-        type="text"
-        name="logEntry"
-        id="logEntry-input"
-        value={form.logEntry}
-        placeholder="Add a Log"
-        onChange={handleChange}
-      />
-      <label htmlFor="skills-input">Skills: </label>
-      <textarea
-        type="text"
-        name="skills"
-        id="skills-input"
-        value={form.skills}
-        placeholder="Skills"
-        onChange={handleChange}
-      />
-      <button type="submit" >Submit</button>
-    </form>
-    <h3>My Logs:</h3>
+      <div class='form-title'> 
+        <h1 className={styles.newLogHeader}>Add A New Log</h1>
+      </div> 
+      <div class='input-form'>
+        <form onSubmit={handleSubmit}>
+        <label htmlFor="date-input">Date: </label>
+        <input
+          required
+          type="date"
+          name="date"
+          id="date-input"
+          value={form.date}
+          onChange={handleChange}
+        />
+        <label htmlFor="logEntry-input">Log: </label>
+        <textarea
+          required
+          type="text"
+          name="logEntry"
+          id="logEntry-input"
+          value={form.logEntry}
+          placeholder="Add a Log"
+          onChange={handleChange}
+        />
+        <label htmlFor="skills-input">Skills: </label>
+        <textarea
+          type="text"
+          name="skills"
+          id="skills-input"
+          value={form.skills}
+          placeholder="Skills"
+          onChange={handleChange}
+        />
+        <div class='submit-button'>
+          <button type="submit" >Submit</button>
+        </div>
+      </form>
+    </div>
+    <h1 className={styles.myLogs}>My Logs:</h1>
     <article>
       <MyLogs user={user} myLogs={profile.myLogs} handleDeleteLog={handleDeleteLog} />
     </article>

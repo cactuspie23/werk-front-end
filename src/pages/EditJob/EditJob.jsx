@@ -23,64 +23,70 @@ const EditJob = (props) => {
 
   return (
     <main>
-      <h1>Edit Job</h1>
-      <form onSubmit={handleSubmit} ref={formElement}>
-        <label htmlFor="title-input">Job Title</label>
-        <input
-          required
-          type="text"
-          name="jobTitle"
-          id="title-input"
-          value={form.jobTitle}
-          placeholder="Job Title"
-          onChange={handleChange}
-        />
-        <label htmlFor="company-input">Company</label>
-        <input
-          required
-          type="text"
-          name="companyName"
-          id="company-input"
-          value={form.companyName}
-          placeholder="Company"
-          onChange={handleChange}
-        />
-        <label htmlFor="url-input">Website URL</label>
-				<input
-          required
-          type="text"
-          name="url"
-          id="url-input"
-          value={form.url}
-          placeholder="URL"
-          onChange={handleChange}
-        />
-        <label htmlFor="jobDetails-input">Job Details</label>
-				<textarea
-          required
-          type="text"
-          name="jobDetails"
-          id="jobDetails-input"
-          value={form.jobDetails}
-          placeholder="Job Details"
-          onChange={handleChange}
-        />
-        <label htmlFor="skills-input">Skills</label>
-				<textarea
-          type="text"
-          name="skills"
-          id="skills-input"
-          value={form.skills}
-          placeholder="Skills"
-          onChange={handleChange}
-        />
-        <button 
-          type="submit"
-          disabled={!validForm}
-        >
-          SUBMIT
-        </button>
-      </form>
+      <div class='form-title'>
+        <h1>Edit Job</h1>
+      </div>
+      <div class='input-form'>
+        <form onSubmit={handleSubmit} ref={formElement}>
+          <label htmlFor="title-input">Job Title</label>
+          <input
+            required
+            type="text"
+            name="jobTitle"
+            id="title-input"
+            value={form.jobTitle}
+            placeholder="Job Title"
+            onChange={handleChange}
+          />
+          <label htmlFor="company-input">Company</label>
+          <input
+            required
+            type="text"
+            name="companyName"
+            id="company-input"
+            value={form.companyName}
+            placeholder="Company"
+            onChange={handleChange}
+          />
+          <label htmlFor="url-input">Website URL</label>
+          <input
+            required
+            type="text"
+            name="url"
+            id="url-input"
+            value={form.url}
+            placeholder="URL"
+            onChange={handleChange}
+          />
+          <label htmlFor="jobDetails-input">Job Details</label>
+          <textarea
+            required
+            type="text"
+            name="jobDetails"
+            id="jobDetails-input"
+            value={form.jobDetails}
+            placeholder="Job Details"
+            onChange={handleChange}
+          />
+          <label htmlFor="skills-input">Skills</label>
+          <textarea
+            type="text"
+            name="skills"
+            id="skills-input"
+            value={form.skills}
+            placeholder="Skills"
+            onChange={handleChange}
+          />
+          <div class='submit-button'>
+            <button 
+              type="submit"
+              disabled={!validForm}
+            >
+              SUBMIT
+            </button>
+          </div>
+        </form>
+      </div>
     </main>
   )
 }
